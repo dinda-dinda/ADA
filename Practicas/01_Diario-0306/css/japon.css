@@ -1,0 +1,38 @@
+header {text-overflow: right;
+margin-left: 180px; 
+}
+
+p {color:blue;
+}
+
+
+.bloque1{ 	margin-left: 50px;
+			text-align: justify;
+			color: black;
+			font-size: 10px;
+			text-orientation: upright;
+			max-width: 70%;
+}
+.pieDeFoto{	font-size: 10px;
+			margin-top: 25px;
+}
+
+
+
+ .capitalLetter {
+ 	float:left;
+   color:black;
+   background:white;
+   font-size:80px;
+   line-height:60px;
+   padding:2px;
+   font-family:times;
+   margin-right: 5px;
+ }
+
+ #bloqueText{
+    text-align: justify;
+	max-width: 70%;
+	margin-left: 50px;
+}
+
