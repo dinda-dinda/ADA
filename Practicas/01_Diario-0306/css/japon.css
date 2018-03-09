@@ -1,38 +1,49 @@
-header {text-overflow: right;
-margin-left: 180px; 
+header {
+
+	text-overflow: right;
+	margin-left: 180px; 
 }
 
-p {color:blue;
+#blueText {color: blue;
 }
 
+#titulo {font-size: 3em;
+	max-width: 100%
+}
+
+p 	{color:black;
+	font-size: 1em;
+}
+
+body 	{ border: 10px;
+		background: white; 
+}
 
 .bloque1{ 	margin-left: 50px;
-			text-align: justify;
-			color: black;
-			font-size: 10px;
-			text-orientation: upright;
-			max-width: 70%;
+		text-align: justify;
+		color: black;
+		font-size: 10px;
+		text-orientation: upright;
+		max-width: 70%;
 }
-.pieDeFoto{	font-size: 10px;
-			margin-top: 25px;
+.pieDeFoto{	font-size: 12px;
+		font-style: italic;
+		margin-top: -2px;
+
 }
-
-
-
  .capitalLetter {
  	float:left;
-   color:black;
-   background:white;
-   font-size:80px;
-   line-height:60px;
-   padding:2px;
-   font-family:times;
-   margin-right: 5px;
+ 	color:black;
+	background:white;
+   	font-size:80px;
+   	line-height:60px;
+   	padding:2px;
+   	font-family:arial;
+   	margin-right: 1px;
  }
-
  #bloqueText{
     text-align: justify;
-	max-width: 70%;
+	max-width: 55%;
 	margin-left: 50px;
 }
 
