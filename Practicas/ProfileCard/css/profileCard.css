@@ -1,0 +1,102 @@
+*{ 
+margin: 0; 
+box-sizing: border-box;
+
+}
+
+.secion{
+
+float: left;
+margin: 2em 1em 1em 1.5em;
+
+
+}
+.background-color{
+	
+	background-image: url("https://photos.app.goo.gl/wDmO0kpO8rrFbRbx2");
+}
+.divMeissure{
+	height:800px; 
+	width:500px;
+
+}
+.contenedorMeissure {
+		border:1px solid #ffccff;
+
+		height: 280px; 
+ 		width: 280px;
+}
+
+#imagenCircular {
+		box-sizing: border-box;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+
+}
+.circularPerfil{
+		padding: top 3em;
+		position: absolute;
+		background-image: ("Libertad.gif");
+		resize: 20%;
+
+		border-radius: 80%;
+		border: 0.2em;
+		border-color: #ffeeff;
+		border-style: ridge;
+
+
+ 	   background-image: ("DindafotoPerfil.jpg");
+		
+		border-radius: 60%;
+		border: 1em;
+		border-color: #ffeeff;
+		border-style: solid;
+}
+
+
+#bandera{
+	position: absolute;
+	resize: 10%;
+
+	border-radius: 50%;
+		border: 0,1em;
+		border-color: #ffeeff;
+		border-style: solid;
+
+	background: ("DindafotoPerfil.jpg");
+		
+
+}
+
+.title {
+		text-align: center;
+		text-decoration-color: transparent;
+		
+
+}
+div {	border:	1px solid #ffccff;
+		background: #343434;
+		height: 500px; 
+		width:	800px;
+}
+
+h1 	{	color: #ffccff;
+		text-align: center;
+
+}
+
+footer{
+
+		background-image: ("arboledaRosa.jpg");
+		
+		float: right;
+		height: 200px;
+		width: 800px;
+
+
+		height: 3em;
+		width: auto;
+}
