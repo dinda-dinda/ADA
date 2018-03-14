@@ -18,22 +18,48 @@
 
 		<p>Email</p>
 		<input class="w3-input w3-animate-input" type="text" style="width:30%">
-		<p>Genero</p>
 
-		<input class="w3-radio" type="radio" name="gender" value="male" checked>
-		<label>Masculino</label>
+		<p>Género</p>
+
 
 		<input class="w3-radio" type="radio" name="gender" value="female" checked>
 		<label>Femenino</label>
+		<input class="w3-radio" type="radio" name="gender" value="male" checked>
+		<label>Masculino</label>
 
 		<p>Nacionalidad</p>
 		<select class="w3-select" name="option">
-			<option value="Nacionalidad" disabled selected>Click para elegir</option>
+			<option value="Nacionalidad" disabled selected >Click para elegir</option>
+
   			<option value="1">Argentina</option>
   			<option value="2">Brasil</option>
-  			<option value="3">Venezuela</option>
+  			<option value="3">Bolivia</option>
+  			<option value="4">Venezuela</option>
 		</select>
-		<p>Temas de interes</p>
+		<p>Temas que le interesan</p>
+
+		<ul>
+			<li>
+				<input class="checkbox" type="checkbox" name="Infraestructura"><p class="checkbox"> Infraestructura </p>	
+			</li>
+			<li>
+				<input class="checkbox" type="checkbox" name="Programacion web"><p class="checkbox">Programación web</p>	
+			</li>
+			<li>
+				<input class="checkbox" type="checkbox" name="Programacion mobile"><p class="checkbox">Programación mobile</p>
+			</li>
+			<li>
+				<input class="checkbox" type="checkbox" name="Acepta los terminos y condiciones"><p class="checkbox">Acepta los términos y condiciones</p>	
+			</li>
+		</ul>
+
+		<div>
+			<button type="button">Cancelar</button>
+			<button type="button">Aceptar</button>		
+				
+			
+		</div>
+			
 		
 	</form>
 </body>
