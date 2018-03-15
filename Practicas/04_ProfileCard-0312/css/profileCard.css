@@ -83,11 +83,8 @@ footer{
 
 		background-image: ("arboledaRosa.jpg");
 		
-		float: right;
+		position: relative;
 		height: 200px;
 		width: 800px;
 
-
-		height: 3em;
-		width: auto;
 }
