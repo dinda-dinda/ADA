@@ -1,84 +1,100 @@
 * {
-	margin:0;
-	padding: 0;
-	box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
 .container {
-	margin: 1em;
-	padding-left: 1em;
-	padding-right: 1em;
-	background: gray;
-	text-align: center;
+    margin: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    background: gray;
+    text-align: center;
 }
+
 header {
-	padding: 10px;
-	text-align: center;
-	background-color: black;
-	position: relative;
-	display: inline-block;
-
-}
-nav{
-	text-align: center;
-}
-ul{ font-size: 2em;
-	color: white;
-	display: inline-block;
-	background-color: coral;
-}
-li{list-style: none;
+    padding: 10px;
+    text-align: center;
+    background-color: black;
+    position: relative;
+    display: inline-block;
 }
 
-#img1, #img2 {
-	resize: 20%;
-	height: 50px; 
-	width: 50px;
+nav {
+    text-align: center;
 }
-h1{
-	margin: 10px;
-	color: white;
-	font-size: 3em
+
+ul {
+    font-size: 2em;
+    color: white;
+    display: inline-block;
+    background-color: coral;
 }
-#pink{ 
-	width: 50%;
-	height: 45%;
-	float: left;
-	margin: 10px 5px 5px 5px;
+
+li {
+    list-style: none;
 }
-#green{
-	width: 30%;
-	height: 45%;
-	margin: 10px 5px 5px 5px;
-	float: left;
+
+#img1,
+#img2 {
+    resize: 20%;
+    height: 50px;
+    width: 50px;
+}
+
+h1 {
+    margin: 10px;
+    color: white;
+    font-size: 3em
+}
+
+#pink {
+    width: 50%;
+    height: 45%;
+    float: left;
+    margin: 10px 5px 5px 5px;
+}
+
+#green {
+    width: 30%;
+    height: 45%;
+    margin: 10px 5px 5px 5px;
+    float: left;
 }
 
 
 #azul {
-	display: inline-block;
-	background: blue; 
-	width: 100%;
-	height: 
+    display: inline-block;
+    background: blue;
+    width: 100%;
+    height:
 }
 
-@media all and (max-width: 480){
+@media (orientation: portrait) {
 
-	#container {width: 100%
-		}
-	h1{}
-	nav{
-		text-align: right; /*corro el nav a la derecha*/
-		position: fixed;
-		top:20%;
-		right: 0;
-	}
-	nav ul li {
-		display: block;
-		margin: 0;
-	}
-	section{
-		margin: 10px;
-	}
-	.pink{
-		width: 100%;
-	}
+    #container {
+        width: 100%
+    }
+    h1 {}
+    nav {
+        text-align: right;
+        /*corro el nav a la derecha*/
+        position: fixed;
+        margin-top: 20%;
+        margin-right: 0;
+    }
+    nav ul li {
+        display: block;
+        margin: 0;
+    }
+    img {
+        width: 10vw;
+        height: auto;
+    }
+    section {
+        margin: 10px;
+    }
+    .pink {
+        display: none;
+    }
 }
