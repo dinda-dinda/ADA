@@ -1,28 +1,85 @@
-*{
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-.container{
-	display: flex;
-}
-nav{
-	justify-content: space-between;
-	width: 100vw;
-	height: 10vh;
-}
-.ruta{
-	align-items: flex-start; 
-}
-.menuHamburg{
-	width: 10vw;
-	height: 10vh;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.mainContainer{
-	width: 100vw;
-	height: 90vh;
-	justify-content: space-around;
-	align-items: center;
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+}
 
+nav {
+    display: flex;
+
+    height: 18vh;
+    width: 100%;
+
+    align-items: top;
+    justify-content: space-between;
+}
+
+.Hamburger {
+    padding-top: 1vh;
+    padding-right: 2vh;
+}
+
+.Ruta {
+    padding-top: 5vh;
+    padding-left: 3vh;
+}
+
+a {
+    font-size: 1em;
+    text-decoration: none;
+    text-decoration-color: lightblue;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+a:link {
+    color: blue;
+}
+
+a:hover {
+    color: hotpink;
+}
+
+a:active {
+    color: blue;
+}
+
+.current {
+    color: black;
+}
+
+.mainContainer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+	background-color: #ffeeff;
+    width: 100%;
+    height: auto;
+    padding-top: 10vh;
+    padding-bottom: 15vh;
+}
+
+figure {
+    text-align: center;
+    width: auto;
+    height: 33vh;
+
+    font-style: italic;
+    font-size: smaller;
+    text-indent: 0;
+
+    margin: 2em;
+    padding: 2em;
+    min-height: 180px;
+    min-width: 180px;
+}
+
+figcaption {
+    text-align: center;
 }
