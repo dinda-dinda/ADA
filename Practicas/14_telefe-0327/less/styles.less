@@ -1,0 +1,56 @@
+*{
+	margin:0;
+	padding: 0;
+	box-sizing: border-box;
+}
+@colorGreen:green;
+@colorBlue:blue;
+@colorRed:red;
+
+
+.round{
+ border-radius: 50%;
+ width: 200px;
+ height: 200px;
+}
+.flex{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+.padd{
+	padding-top: 20vh;
+	padding-bottom: 20vh;
+	padding-left: 10vw;
+	padding-right: 10vw;
+}
+.MainContainer{
+	.padd;
+	.flex;
+}
+#verde{
+	background-color: @colorGreen;
+	
+	&:hover {
+			background-color: mix(red, yellow);	
+	}
+}
+#azul{
+	background-color: @colorBlue;
+	
+	&:hover {
+		background-color:#ffeeff;
+	}	
+}
+#rojo{
+	background-color: @colorRed;
+	
+	&:hover {
+		background-color: desaturate(@colorRed, 90%);
+	}
+}
+.Pelota{
+	.flex;
+	.round;
+}

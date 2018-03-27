@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.medidas {
+  width: 800px;
+  height: 40vh;
+  padding: 10px;
+  margin: 5px;
+}
+.Container {
+  width: 800px;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.Destacado {
+  background-color: #444444;
+  width: 800px;
+  height: 40vh;
+  padding: 10px;
+  margin: 5px;
+  display: flex;
+  flex-direction: rox;
+  justify-content: space-between;
+}
+.Peru {
+  background-color: #CD853F;
+  width: 800px;
+  height: 40vh;
+  padding: 10px;
+  margin: 5px;
+  width: 390px;
+  height: 40vh 40vh;
+}
+.Yellow {
+  background-color: #FFFF00;
+  width: 800px;
+  height: 40vh;
+  padding: 10px;
+  margin: 5px;
+  width: 390px;
+  height: 40vh 40vh;
+}
+.Yellow:hover {
+  background-color: palegreen;
+}
+.ArticulosVarios {
+  display: flex;
+  flex-direction: rox;
+  justify-content: space-between;
+}
+.NicePink {
+  background-color: #ffeeff;
+  width: 800px;
+  height: 40vh;
+  padding: 10px;
+  margin: 5px;
+  width: 400px;
+  height: 40vh 40vh;
+}
+footer {
+  width: 800px;
+  height: 20vh;
+  background-color: #444444;
+}

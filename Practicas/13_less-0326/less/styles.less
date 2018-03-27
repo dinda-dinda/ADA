@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@ancho : 800px;
+@alto :40vh;
+@padding:10px;
+@margin:5px;
+
+@colorPeru: #CD853F;
+@colorYellow: #FFFF00;
+@colorPink: #ffeeff;
+@backColor :#444444;
+@colorPaleGreen: #98FB98;
+
+.flex (@flex-direction: column;){
+	display: flex;
+	flex-direction: @flex-direction;
+	justify-content: space-between;
+}
+.medidas {
+    width: @ancho;
+    height: @alto;
+    padding: @padding;
+    margin: @margin;
+}
+
+.Container {
+    width: @ancho;
+    height: @alto;
+    .flex;
+}
+
+.Destacado {
+    background-color: @backColor;
+    .medidas;
+    .flex(rox);
+}
+
+.Peru {
+    background-color: @colorPeru;
+    .medidas;
+    width: (@ancho/2)-@padding;
+    height: @alto (40vh);
+}
+
+.Yellow {
+    background-color: @colorYellow;
+    .medidas;
+    width: (@ancho/2)-@padding;
+    height: @alto (40vh);
+    &:hover{
+    	background-color: palegreen;
+    }
+}
+
+.ArticulosVarios {
+    .flex(rox);
+}
+
+
+.NicePink {
+    background-color: @colorPink;
+    .medidas;
+    width: @ancho/2;
+    height: @alto (40vh);
+}
+
+footer {
+    width: @ancho;
+    height: 20vh;
+    background-color: @backColor;
+}
