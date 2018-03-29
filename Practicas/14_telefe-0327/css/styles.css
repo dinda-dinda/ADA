@@ -40,13 +40,13 @@
   background-color: blue;
 }
 #azul:hover {
-  background-color: #ffeeff;
+  background-color: rgba(0, 0, 255, 0.1);
 }
 #rojo {
   background-color: red;
 }
 #rojo:hover {
-  background-color: #8c7373;
+  background-color: #bf4040;
 }
 .Pelota {
   display: flex;

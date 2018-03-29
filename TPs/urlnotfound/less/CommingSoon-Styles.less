@@ -1,0 +1,92 @@
+*{margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
+@colorSilver:#8A8D8F;
+@colorDeepPurple:#3C1053; 
+@colorLightGreen:#ADDC91;
+
+@ancho: 100vw;
+@alto:100vh; 
+
+.flex{
+	display: flex;
+	flex-direction: column;
+	justify-content: ;;
+}
+
+.flex-container{
+		.flex;
+
+		width: @ancho;
+		height: @alto;
+		background-color: @colorDeepPurple;
+}
+.portada{
+		flex-wrap: wrap;
+		width: @ancho;
+}
+#fondo{
+	.flex;
+
+	flex
+	
+	position:absolute;
+	 z-index:1;
+	  width:@ancho; height:@alto;
+}
+
+#commingSoon{
+   justify-content: space-around;
+	color: red;
+	font-size: 2em;
+	font-family: "Lucida Console", monospace;
+	font-style: italic;
+
+ }	
+input{
+	height: 2em;
+	width: 	50%;
+	margin-left: 20px;
+	margin-right: 50px;
+    box-sizing: border-box;
+    background-color: #eeffff;
+	padding-left: 10px;
+}
+span{
+	margin-bottom: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 5px;
+	font-size: 2em;
+	font-family: "Lucida Console", monospace;
+	font-style: italic;
+}
+button{
+	margin-top: 5px;
+	margin-right: 200px;
+	font-size: 1em;
+	font-style: italic;
+	font-family: "Lucida Console", monospace;
+}
+.alignDer{
+	justify-content: flex-end; /*alinea horizontalmente a la derecha*/
+}
+.alignItems{
+	align-items: center; /*alinea verticalmente caja*/
+	
+}
+
+footer{
+	float: right;
+	overflow: auto;
+}
+
+#socials {
+	height: 400px;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}

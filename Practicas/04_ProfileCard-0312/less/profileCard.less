@@ -1,0 +1,153 @@
+/*hoja de estilos Dinda profileCard usando less ADA-2018 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@colorPink: #ffeeff;
+@colorBlanco: #ffffff;
+@colorDark: #444444;
+@colorSilver: #C0C0C0;
+@ancho: 100vw;
+@alto: 100vh;
+
+@anchoCard: 480px;
+@altoCard: 800px;
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#container {
+    .flex;
+    width: @ancho;
+    height: @alto;
+    background-color: @colorBlanco;
+}
+
+.MainContainer {
+    width: 480px;
+    height: 620px;
+    .flex;
+    padding: 0;
+    background-color: @colorBlanco;
+    border: 3px solid silver;
+}
+
+.profileVisual {
+
+    .flex;
+    padding-top: 15px;
+    padding-bottom: 0px;
+    justify-content: flex-start;
+    width: @anchoCard;
+    height: 100px;
+    min-height: 350px;
+    position: relative;
+}
+
+.Picture {
+    .flex;
+    padding: 1px;
+    margin-top: 10px;
+
+    width: 60vw;
+    max-width: 300px;
+    height: 60vw;
+    max-height: 300px;
+    border-radius: 80%;
+    border: 5px dotted @colorPink; /*puntos alrededor de la img*/
+}
+
+.PictureOrigin {
+
+    margin-top: -50px;
+    margin-left: 150px;
+
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid @colorPink;
+}
+
+header {
+    .flex;
+    justify-content: space-around;
+}
+
+
+article {
+    .flex;
+    background-color: #ffeeff;
+    padding: 2px;
+    margin-bottom: 1px;
+    font-size: 1.2em;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+h1,
+h3 {
+    color: @colorDark;
+    text-align: center;
+}
+
+.name {
+    margin-top: -30px;
+    padding-top: 1px;
+}
+
+.work {
+
+    padding-bottom: 5px;
+}
+
+strong {
+    padding-bottom: 5px;
+    color: @colorDark;
+    text-align: center;
+}
+
+#myWeb:link {
+    color: @colorSilver;
+}
+
+#myWeb:hover {
+    color: @colorPink;
+}
+
+
+footer {
+
+    .flex;
+
+    background-color: silver;
+    width: @anchoCard;
+    height: 50px;
+    flex-direction: row;
+}
+
+
+/*para que giren los iconos cuando hover*/
+
+.ico {
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.ico:hover {
+    cursor: default;
+    transform: rotate(360deg);
+    transition: all 0.3s ease-in-out 0s;
+}
