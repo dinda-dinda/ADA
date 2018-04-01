@@ -1,92 +1,141 @@
-*{margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 
-@colorSilver:#8A8D8F;
-@colorDeepPurple:#3C1053; 
-@colorLightGreen:#ADDC91;
+@colorSilver: #8A8D8F;
+@colorDeepPurple: #3C1053;
+@colorDark: #444444;
+@colorLightGreen: #ADDC91;
+@colorPink: #ffeeff;
 
 @ancho: 100vw;
-@alto:100vh; 
+@alto: 100vh;
 
-.flex{
-	display: flex;
-	flex-direction: column;
-	justify-content: ;;
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.flex-container{
-		.flex;
-
-		width: @ancho;
-		height: @alto;
-		background-color: @colorDeepPurple;
+.flex-container {
+    .flex;
+		align-items: center;
+    width: @ancho;
+    height: @alto;
+    background-color: @colorDark;
 }
-.portada{
-		flex-wrap: wrap;
-		width: @ancho;
-}
-#fondo{
-	.flex;
 
-	flex
+.portada {
+    .flex;
+
+    flex-wrap: wrap;
+    width: @ancho;
+    height: 440px;
+
+    background-color: #cccccc;
+    background-image: url(../img/fondo1480-440.png);
+    min-height: 20vh;
+    max-height: 440px;
+}
+
+#mainContainer {
+    .flex;
+    flex-direction: row;
+    align-items: baseline;
+    padding: 2vh 2vw 2vh 2vw;
+    flex-wrap: wrap;
+    
+}
+
+#commingSoon {
+    justify-content: space-around;
+    color: @colorDeepPurple;
+    font-size: 2em;
+    font-family: "Lucida Console", monospace;
+    font-style: italic;
+}
+
 	
-	position:absolute;
-	 z-index:1;
-	  width:@ancho; height:@alto;
+
+
+span#commingSoon {
+    text-align: center;
+    margin-top: 7vh;
 }
 
-#commingSoon{
-   justify-content: space-around;
-	color: red;
-	font-size: 2em;
-	font-family: "Lucida Console", monospace;
-	font-style: italic;
-
- }	
-input{
-	height: 2em;
-	width: 	50%;
-	margin-left: 20px;
-	margin-right: 50px;
+input {
+    .flex;
+    height: 2em;
+    width: 35vw;
+    margin: 0vh 1vw 0vw 1vw;
     box-sizing: border-box;
-    background-color: #eeffff;
-	padding-left: 10px;
-}
-span{
-	margin-bottom: 5px;
-	margin-left: 5px;
-	margin-right: 5px;
-	margin-top: 5px;
-	font-size: 2em;
-	font-family: "Lucida Console", monospace;
-	font-style: italic;
-}
-button{
-	margin-top: 5px;
-	margin-right: 200px;
-	font-size: 1em;
-	font-style: italic;
-	font-family: "Lucida Console", monospace;
-}
-.alignDer{
-	justify-content: flex-end; /*alinea horizontalmente a la derecha*/
-}
-.alignItems{
-	align-items: center; /*alinea verticalmente caja*/
-	
+    background-color: @colorPink;
+    font-size: 1em;
 }
 
-footer{
-	float: right;
-	overflow: auto;
+#mainContainer span {
+
+	width: 15vw;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 0px;
+    margin-top: 5px;
+    font-size: 1em;
+    font-family: "Lucida Console", monospace;
+    font-style: italic;
+}
+
+button {
+    margin-top: 5px;
+ 
+    font-size: 1em;
+    font-style: italic;
+    font-family: "Lucida Console", monospace;
+    width: 12vw;
+}
+
+.alignDer {
+    .flex;
+
+    flex-direction: row;
+    align-items: flex-end;
+    /*alinea horizontalmente a la derecha*/
+}
+
+footer {
+    float: right;
+    overflow: auto;
 }
 
 #socials {
-	height: 400px;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
+    height: 500px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#githubIco{
+	&:hover{
+		background-image: url("../img/githubWhite.png");
+}
+}
+#instagramIco{
+	&:hover{
+		background-image: url("../img/instagramGray.png");
+}
+}
+#twitterIco{
+	&:hover{
+		background-image: url("../img/twitterWhite.png");
+}
+}
+#linkedinIco{
+	&:hover{
+		background-image: url("../img/linkedinWhite.png");
+}
 }
