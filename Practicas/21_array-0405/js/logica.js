@@ -4,7 +4,7 @@
 var N = 10;
 var numeros = []; //array vacio//
 
-for (i = 0; i < N; i++) {
+for (var i = 0; i < N; i++) {
     numeros[i] =i;
     console.log(numeros[i]);
 }
@@ -31,23 +31,26 @@ for (i = 0; i < N; i++) {
 
 //Ej 3 arreglo de num x= [10,24,36,7,98,11,14,20] mostrar el val max.
 //Ej 4 detallar posicion del mayor
-/*
+
 const N = 8;
 const x= [10,24,36,7,98,11,14,20]; //array vacio//
 var numeroMayor=0;
 var resultado = 0;
-var pos = 0;
+var posicion = 0;
 
-for (i = 0; i < N; i++) {
-    resultado = x[i];
-    if(numeroMayor<resultado){
-    pos = i;
-    numeroMayor=resultado;
-    }
-    
+for (i = 0; i < N; i++ ) {
+  
+    resultado = x[i] ;
+
+    if ( numeroMayor < resultado ){
+  
+    posicion = i ;
+    numeroMayor = resultado ;
+  
+    }  
 }
 console.log("Numero " + numeroMayor + ' Posicion ' + pos);
-*/
+
 
 //hacer ejercicio 7
 /*
