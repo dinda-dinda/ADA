@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.Main{
+	.Flex;
+	width: 100vw;
+	height: 100vh;
+	margin:0;
+}
+.Flex {
+    display: flex;
+    flex-direction: column;
+    align-items: justify;
+    justify-content: space-around;
+}
+
+.Picture {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-around;
+    padding: 1px;
+    margin-top: 10px;
+    width: 60vw;
+    max-width: 300px;
+    height: 60vw;
+    max-height: 300px;
+    border-radius: 80%;
+    border: 5px dotted #ffeeff;
+    /*puntos alrededor de la img*/
+}
+
+#avatar h1 {
+  font-size: 3em;
+  	color: purple;
+  	text-align: center;
+}
+
+.Purple h3{
+  font-size: 0.5em;	
+  color: purple;
+
+}
+
+
+
+.Thumb{
+	width: 80px;
+	height: 80px;
+	border-radius: 80%;
+ 	border: 2px dotted #ffeeff;
+}
