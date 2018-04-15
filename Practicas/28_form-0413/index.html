@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>form</title>
+     <meta charset="utf-8">
+</head>
+
+<body>
+
+    <header id="container">
+<h1>Formulario de Inscripcion</h1>
+    </header>
+    <section id="personal">
+    	<h3>Datos Personales</h3>
+        <label>Nombre *</label>
+        <input type="text" id="Nombre" class="obligatorio"">
+        <br/>
+        <label>Apellido</label>
+        <input type="text" id="Apellido" class="obligatorio">
+        <br/>
+        <label >Nacionalidad *</label>
+        <select id="Nacionalidad" class="obligatorio">
+            <option value="Elige">Selecciona Nacionalidad</option>
+            <option value="Argentin@">Argentin@</option>
+            <option value="Brasiler@">Brasiler@</option>
+             <option value="Bolivian@">Bolivian@</option> 
+            <option value="Paraguay@">Paraguay@</option>
+            <option value="Venezolan@">Venezolan@</option>
+        </select>
+        <br/>
+		<label>Fecha de Nacimiento *</label>
+        <input type="text" id="fecNac" >
+        <br/>
+
+        <label>Tipo de Documento</label>
+        <select  id="TipoDoc">
+            <option value="Elige">Selecciona Tipo de Documento</option>
+            <option value="DNI">DNI</option>
+            <option value="Pasaporte">Pasaporte</option>
+        </select>
+        <label id="NumDoc" class="obligatorio">Numero de Documento *</label>
+         <input type="text" id="NumDoc" >
+        <br/>
+        <br/>
+
+    <section id="domicilio">
+    	<h3>Domicilio</h3>
+        <label>Calle *</label>
+        <input type="text" id="calle" class="obligatorio">
+        <br/>
+        <label>Num</label>
+        <input type="text" name="Numero" label="Num">
+        <label>Piso</label>
+        <input type="text" name="Piso" label="Piso">
+        <label>Dpto</label>
+        <input type="text" name="Dpto" label="Dpto">
+        <br/>
+        <label>Provincia</label>
+        <select id="prov">
+        	<option value="select">Selecciona una opcion</option>
+            <option value="Buenos Aires">Buenos Aires</option>
+            <option value="Cordoba">Cordoba</option>
+            <option value="Rio Negro">Rio Negro</option>
+            <option value="Misiones">Misiones</option>
+            <option value="Otra">Otra</option>
+        </select>
+        <br/>
+        <label>Ciudad</label>
+        <select id="ciud">
+        	<option value="select">Selecciona una opcion</option>
+            <option value="Don Torcuato">Don Torcuato</option>
+            <option value="CABA">CABA</option>
+            <option value="Hogwarts">Hogwarts</option>
+            <option value="Hobbiton">Hobbiton</option>
+        </select><br/><br/>
+    </section>
+    
+    <section>
+    	<h3>Relevantes Categoria</h3>
+    	<label>Genero *</label><br/>
+    	<input type="radio" id="fem">Femenino</input><br/>
+    	<input type="radio" id="masc">Masculino</input><br/>
+    </section>
+    <section>
+    	<label>Deportes</label><br/>
+    	<input type="checkbox" id="judo" value="judo">judo</input><br/>
+    	<input type="checkbox" id="running" value="running">Running</input><br/>
+    	<input type="checkbox" id="softball" value="softball">Softball</input><br/>
+    </section>
+    <section>
+    	<label>Altura</label>
+    	<input type="text" name="altura">
+    	<label>Peso</label>
+    	<input type="text" name="peso">
+    	<br/><br/>
+    </section>
+    <section>
+    	<h3>Contacto</h3>
+    	<label>Telefono</label>
+    	<input type="text" name="Telefono"><br/>
+    	<label>Email *</label>
+    	<input id="email" type="email" name="email"><br/>
+    	<label>Observaciones</label>
+    	<input type="text" name="text">
+    </section>
+		<br/>
+		<br/>
+		<button type="button" id="boton">Submit</button>
+
+    <script type="text/javascript" src="js/formLogica.js"></script>
+</body>
+
+</html>

@@ -29,7 +29,7 @@ function displayAvatar(foto, nombre) {
     img.classList.add("Picture"); //le agrego una clase la Img
     img.classList.add("Flex");
     perfil.appendChild(img);
-    var texto = document.createElement("h1")
+    var texto = document.createElement("h1");
     texto.textContent = nombre;
     perfil.appendChild(texto);
 }
