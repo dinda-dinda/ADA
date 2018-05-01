@@ -1,3 +1,74 @@
-.obligatorio{
-	color:red;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/*paleta de colores*/
+.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.obligatorio {
+  color: red;
+}
+.container {
+  width: 100vw;
+  height: 100vh;
+  padding: 5px;
+  margin: 5vh 10vw 5vh 10vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #2196F3;
+  height: 20vh;
+}
+h1 {
+  color: white;
+}
+.completeImput {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 5px 0px 5px;
+  /*@extend %block*/
+  /*background:@blue50;*/
+  font: inherit;
+  line-height: normal;
+  width: 80%;
+  display: block;
+  padding-left: 0;
+  outline: none;
+  color: black;
+  border-bottom-color: #64B5F6;
+}
+.button {
+  background-color: #607D8B;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 50%;
+}
+
+#personal{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 5vh;
+  margin-left: 12vw;
+  flex-direction: column;
 }

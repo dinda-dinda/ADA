@@ -1,0 +1,121 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box; 
+
+}
+main{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-content:  center;
+	background: purple;
+
+	width: 100vw;
+	height: 100vh;
+}
+
+aside{
+	background: black;
+	color: white;
+	
+	width: 20vw;
+	height: 100vh;
+	
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-content:  center;
+}
+#titulo{
+	font-family:'Electrolize';
+
+	align-content: flex-start;
+	text-align: center;
+	padding: 0.7em;
+	font-size: 3em;
+}
+#jugador h3{
+	font-family:'Electrolize';
+	color: lightblue;
+	text-align: center;
+	padding: 0.3em;
+	font-size: 1.5em;
+}
+#instrucciones{
+	font-family:'Electrolize';
+	display: flex;
+	flex-direction: column;
+	align-content: flex-start;
+}
+#instrucciones span{
+	
+	text-align: center;
+	padding: 0.3em;
+	padding-top: 3em;
+	font-size: 1em;
+}
+#instrucciones p{
+	text-align: center;
+	padding: 0.3em;
+	font-size: 1em;
+}
+
+#play{
+	background: gray;
+	width: 80vw;
+	height: 100vh;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	padding-top: 10vh;
+}
+
+#tablero{
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content:center;
+	align-content:  center;
+	
+	width: 90vh;
+	height: 80vh;
+
+	background-color: lightblue;
+	margin: 5px;
+	border: 2px;
+	color: blue;
+}
+
+#tablero figure{
+	width: 20vh;
+	height: 20vh;
+	background: pink;
+	margin: 5px;
+	border-color:pink;
+	border-width: 2px;
+}
+
+#tablero figure img {
+	width: 20vh;
+	height: 20vh;
+}
+
+img:hover{
+	 opacity: 0.9;
+    filter: alpha(opacity=5);
+	 padding: 1px;
+    background-color: pink;
+    transition: transform .2s; /* Animation */
+    margin: 0 auto;
+     -webkit-animation: spin 4s infinite linear;
+}
+
+@-webkit-keyframes spin {
+    0%  {-webkit-transform: rotate(0deg);}
+   25%  {-webkit-transform: rotate(5deg);}
+   75%  {-webkit-transform: rotate(-5deg);}
+    100% {-webkit-transform: rotate(0deg);}   
+
+}

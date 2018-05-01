@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>eligeAvatar</title>
+    <link rel="stylesheet" type="text/css" href="css/cumpleStyles.css">
+</head>
+
+<body>
+    <header>
+        <h2>Elige avatar y escribe tu Nombre</h2>
+        <form id="formCumple">
+            <div>
+                <label>Nombre Cumpleañero</label>
+                <input id="nombreCumple" type="text" name="nombre" required="true" class="requiredClass">
+            </div>
+            <div>
+                <label>Fecha de cumpleaños</label>
+                <input id="fechaCumple" type="date" name="fechaCumple" required="true" class="requiredClass">
+            </div>
+            <div>
+                <label>Avatar Elegido</label>
+                <input id="nombreImg" type="text" name="nombreImg" required="true" disabled="true" class="requiredClass">
+            </div>
+
+            <input  id="botnListo" type="submit" name="Listo!"><!--<a href="index.html"/a>-->
+			
+			
+
+        </form>
+    </header>
+    <div id="avatarContainer">
+        
+        <a class="avatar" data-avatar="Lego Swimmer"><img  src="img/Lego Swimmer.png" width="250 px" height="250 px"></a>
+    
+        <a class="avatar" data-avatar="Lego DJ">
+        <img src="img/Lego DJ.png" width="250 px" height="250 px"></a>
+        
+        <a class="avatar" data-avatar="Lego Sea King"><img src="img/Lego Sea King.png" width="250 px" height="250 px"></a>
+        
+        <a class="avatar" data-avatar="Lego R2d2"><img src="img/Lego R2d2.png" width="250 px" height="250 px"></a>
+
+    </div>
+    <footer>
+    	 <a href="index.html">Cumples<a/>
+
+    </footer>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/cumpleLogic.js"></script>
+</body>
+
+</html>

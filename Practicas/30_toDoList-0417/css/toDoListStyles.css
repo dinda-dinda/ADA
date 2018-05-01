@@ -1,0 +1,33 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+header{
+
+	height: 20vh;
+	display: flex;
+	align-items: center;
+}
+
+#container{
+	display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+ul{
+	 display: flex;
+	 flex-direction: column;
+	 	 margin: 5px 2px 2px 2px;
+}
+.claseTacho{
+	color: pink;
+}
+
+.ListaStyle{
+	 list-style-type: none;
+	 display: flex;
+	 flex-direction: row;
+	 margin: 5px 2px 2px 2px;
+}
