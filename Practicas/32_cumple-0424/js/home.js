@@ -1,6 +1,6 @@
 var ruta = 'img/';
 var cumplesStorage = localStorage.getItem("cumples");
-var cumples = JSON.parse(cumplesStorage);/*.cumples;*/
+var jSon = JSON.parse(cumplesStorage);/*.cumples;*/
 var cumples = jSon.cumples;
 
 
