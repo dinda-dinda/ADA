@@ -53,6 +53,16 @@ function agregarProducto(item) {
 function limpiarLS(){
 	localStorage.clear();
 }
+
+
+
+function crearCuenta(){
+
+    	localStorage.getItem("carritoGuardado");
+		let carritoGuardado = JSON.parse(jsonCarrito).carrito;
+
+
+}
 /*
 function guardar
         jsonCarrito = {
@@ -64,8 +74,6 @@ function guardar
 
         console.log("QUE HAY EN LA VARIABLE LOCAL " + localStorage.getItem("carrito"));
 */
-
-
 
 $('.add').on('click', function(e) {
     var padre = $(this).parent();

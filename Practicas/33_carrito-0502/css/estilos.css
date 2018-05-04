@@ -1,38 +1,83 @@
-header{
-	height: 200px;
-	background: peru;
-	text-align: center;
-}
-
-header h1{
-	font-size: 22px;
-}
-
-main{
-	display:flex;
-	justify-content: space-around;
-
-}
-
-.products-row{
-
+header {
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
+	flex-direction: column;
+    height: 25vh;
+    background: lightblue;
+    text-align: center;
 }
 
-.product{
-
-	width: 20%;
+header h1 {
+    font-family: 'Alegreya SC', serif;
+    display: flex;
+    justify-content: center;
+    color-font: white;
+    font-size: 3em;
 }
 
+header h4 {
+	font-family: 'Oleo Script Swash Caps', cursive;
+    display: flex;
+    justify-content: center;
+    color-font: darkGray;
+    font-size: 2em;
+}
+
+header h5 {
+	font-family: 'Oleo Script Swash Caps', cursive;
+    display: flex;
+    justify-content: center;
+    color-font: darkGray;
+    font-size: 2em;
+}
+
+main {
+    display: flex;
+    justify-content: space-around;
+}
+
+.descripcion{
+	font-family: 'Oleo Script Swash Caps', cursive;
+		font-size:  1em;	
+}
 .precio{
-
-	font-weight: bold;
+font-family: 'Oleo Script Swash Caps', cursive;
+		font-size:  1em;		
+}
+button{
+font-family: 'Oleo Script Swash Caps', cursive;
+		font-size:  1em;			
 }
 
-footer{
+.products-row {
 
-	height: 100px;
-	background: peru;
-	text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.product {
+		display: flex;
+		flex-direction: column;
+    width: 20%;
+}
+
+.precio {
+	display: flex;
+	justify-content: flex-end;
+    font-weight: bold;
+}
+
+footer {
+		display: flex;
+    height: 100px;
+    background: lightblue;
+    text-align: center;
+}
+footer a{
+		display: flex;
+		flex-direction: column;		
+		justify-content: space-around;
+		align-items: center;
+		font-family: 'Oleo Script Swash Caps', cursive;
+		font-size:  1em;
 }
