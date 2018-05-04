@@ -21,11 +21,18 @@ var primerImagen = {
 function voltarCartas() {
     let backImg = "img/backImg.jpg";
     $('img').attr("src", backImg);
+
+}
+
+function verCarta(){
+    let id = $(this).attr("id");
+    $(this).find(':first-child').attr("src", arrArboles[id]);
+
 }
 
 function chequearCartas() {
     let id = $(this).attr("id");
-    $(this).find(':first-child').attr("src", arrArboles[id]);
+/*    $(this).find(':first-child').attr("src", arrArboles[id]);*/
 
     if (primerImagen.imagen == null) {
         primerImagen.imagen = arrArboles[id]; //pongo src en objeto primerIm .imagen index-array
@@ -37,26 +44,21 @@ function chequearCartas() {
             $("#" + primerImagen.id).off(); //quito evento ;1era imagen
             alert("SON IGUALES");
       
-        } else {
+        } else {  
             let backImg = "img/backImg.jpg";
-            $("#" + primerImagen.id).attr("src", backImg);
-            $(this).attr("src", backImg);
+            $("#" + primerImagen.id).find(':first-child').attr("src", backImg);
+            $(this).find(':first-child').attr("src", backImg);
         }
+
         primerImagen.imagen = null;
         primerImagen.id = null;
     }
 }
 
-
-
-
-function cambiarImg() {
-    let id = $(this).attr("id");
-    $(this).find(':first-child').attr("src", arrArboles[id]);
-
-}
-
-
+/*
+*       mezcla el contenido de un array
+*        @param array  -  return array
+*/
 function mezclarArray(a) {
     var j, x, i;
     for (i = a.length - 1; i > 0; i--) {
@@ -67,7 +69,7 @@ function mezclarArray(a) {
     }
     return a;
 }
-
+$('figure').on('click', verCarta);
 $('figure').on('click', chequearCartas);
 mezclarArray(arrArboles);
 voltarCartas();
