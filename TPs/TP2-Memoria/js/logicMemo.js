@@ -24,7 +24,7 @@ function voltarCartas() {
 
 }
 
-function verCarta(){
+function verCarta() {
     let id = $(this).attr("id");
     $(this).find(':first-child').attr("src", arrArboles[id]);
 
@@ -32,7 +32,7 @@ function verCarta(){
 
 function chequearCartas() {
     let id = $(this).attr("id");
-/*    $(this).find(':first-child').attr("src", arrArboles[id]);*/
+    /*    $(this).find(':first-child').attr("src", arrArboles[id]);*/
 
     if (primerImagen.imagen == null) {
         primerImagen.imagen = arrArboles[id]; //pongo src en objeto primerIm .imagen index-array
@@ -43,8 +43,7 @@ function chequearCartas() {
             $(this).off(); //quito el evento
             $("#" + primerImagen.id).off(); //quito evento ;1era imagen
             alert("SON IGUALES");
-      
-        } else {  
+        } else {
             let backImg = "img/backImg.jpg";
             $("#" + primerImagen.id).find(':first-child').attr("src", backImg);
             $(this).find(':first-child').attr("src", backImg);
@@ -56,9 +55,9 @@ function chequearCartas() {
 }
 
 /*
-*       mezcla el contenido de un array
-*        @param array  -  return array
-*/
+ *       mezcla el contenido de un array
+ *        @param array  -  return array
+ */
 function mezclarArray(a) {
     var j, x, i;
     for (i = a.length - 1; i > 0; i--) {

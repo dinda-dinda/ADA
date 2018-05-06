@@ -49,7 +49,7 @@ for (i = 0; i < N; i++ ) {
   
     }  
 }
-console.log("Numero " + numeroMayor + ' Posicion ' + pos);
+console.log("Muestro el mayor numero y el index del array : Numero " + numeroMayor + ' Posicion ' + posicion);
 
 
 //hacer ejercicio 7
