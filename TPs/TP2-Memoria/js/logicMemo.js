@@ -29,9 +29,21 @@ var segundaImagen = {
 function voltarCartas() {
 
     let backImg = "img/backImg.jpg";
-    $('img').attr("src", backImg);
+    $('img').attr("src", backImg).delay( 800 ).fadeIn( 400 );
 }
 
+
+function guardarIDsSegundaCarta(id, arboles){
+            segundaImagen.imagen = arboles[id];  //pongo src en objeto segundaImagen.imagen el numero de index que corresponde con el id del figure
+            segundaImagen.id = id; //me guardo el id del figure en primerImagen.
+            console.log(segundaImagen);
+}
+function borrarIDsPrimerSegundaImagenNull(primerImagen, segundaImagen,id){
+            primerImagen.imagen = null;
+            primerImagen.id = null;
+            segundaImagen.imagen = null;
+            segundaImagen.id = null;
+}
 
 /*        las imagenes que tienen la img del array las vuelve a la default        
  *        @param  segundaImg -  return 
@@ -46,47 +58,52 @@ function chequearCartas(id) {
     } else {
         if (primerImagen.imagen == arboles[id] && //Si el src guardada en primerImagen es igual al numero de index
             primerImagen.id != id) { //comparo el nuevo id de la segunda imagen con el guardado en primera imagen
-            
-            segundaImagen.id = id; //me guardo el id del figure en primerImagen.
-
-            console.log("id : "+id);
+  
+            guardarIDsSegundaCarta(id, arboles);          
+  
+            //console.log("id : "+id);
             $("#" + primerImagen.id).off(); //quito evento ;1era imagen
             $("#" + segundaImagen.id).off(); //quito el evento a la segunda imagen
-                
-            console.log("# primerImagen : #"+primerImagen.id);
-            console.log("# segundaImagen : #"+segundaImagen.id);
-
+  
             $("#" + primerImagen.id).first().removeClass('notChecked'); //le quito la clase notChecked
             $("#" + segundaImagen.id).first().removeClass('notChecked'); //le quito la clase notChecked
             $("#" + primerImagen.id).first().addClass('checked'); //agrego nueva clase checked
             $("#" + segundaImagen.id).first().addClass('checked'); //agrego nueva clase checked
             
-
 //            alert("SON IGUALES");
+            borrarIDsPrimerSegundaImagenNull(primerImagen, segundaImagen,id);
 
-            primerImagen.imagen = null;
-            primerImagen.id = null;
-
-            segundaImagen.imagen = null;
-            segundaImagen.id = null;
         } else {
+  
+            guardarIDsSegundaCarta(id,arboles);            
+  
+            function showNext(id, segundaImagen, primerImagen){
+             //   $("#" + segundaImagen.id).hide(1000);
+              //  $("#" + primerImagen.id).hide(1000);
+                $("#" + segundaImagen.id).show(1000);
+                $("#" + primerImagen.id).show(1000);
+                
+                console.log("showNext");
+            }
+            showNext(id, segundaImagen, primerImagen);
             let segundaImg = id;
-            darVuelta(segundaImg);
+            darVuelta(segundaImg,id);
         }
 
     }
 }
 
-/*        las imagenes que ya tienen un src seteado (la img en el array) las vuelve a la default        
- *        @param  segundaImg -  return 
+/*        vuelve a la default las imagenes que ya tienen un src seteado con la img del array        
+ *        @param  segundaImg -  primerImagen null
+ *
  */
-function darVuelta(segundaImg) {
+function darVuelta(segundaImg,id) {
     let backImg = "img/backImg.jpg";
     $("#" + primerImagen.id).find(':first-child').attr("src", backImg); //vuelta 1er imagen
     $("#" + segundaImg).find(':first-child').attr("src", backImg); //vuelta 2da imagen
-
-    primerImagen.imagen = null;
-    primerImagen.id = null;
+    $("#" + primerImagen.id).removeClass("mirando");
+    $("#" + segundaImg).removeClass("mirando").delay(2000).fadeIn();
+    borrarIDsPrimerSegundaImagenNull(primerImagen,segundaImagen,id);
 }
 
 /*        trae el atributo ID del Figure, lo compara con el Index del array arboles
@@ -95,8 +112,8 @@ function darVuelta(segundaImg) {
  */
 function verCarta() {
     var id = $(this).attr("id");
-    $(this).find(':first-child').attr("src", arboles[id]); //
-    
+    $(this).find(':first-child').attr("src", arboles[id]); 
+    $(this).addClass("mirando");//    
     chequearCartas(id);
 }
 
