@@ -1,121 +1,166 @@
-*{
-	margin: 0px;
-	padding: 0px;
-	box-sizing: border-box; 
-
-}
-main{
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-content:  center;
-	background: purple;
-
-	width: 100vw;
-	height: 100vh;
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
 }
 
-aside{
-	background: black;
-	color: white;
-	
-	width: 20vw;
-	height: 100vh;
-	
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	align-content:  center;
-}
-#titulo{
-	font-family:'Electrolize';
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    background: purple;
 
-	align-content: flex-start;
-	text-align: center;
-	padding: 0.7em;
-	font-size: 3em;
-}
-#jugador h3{
-	font-family:'Electrolize';
-	color: lightblue;
-	text-align: center;
-	padding: 0.3em;
-	font-size: 1.5em;
-}
-#instrucciones{
-	font-family:'Electrolize';
-	display: flex;
-	flex-direction: column;
-	align-content: flex-start;
-}
-#instrucciones span{
-	
-	text-align: center;
-	padding: 0.3em;
-	padding-top: 3em;
-	font-size: 1em;
-}
-#instrucciones p{
-	text-align: center;
-	padding: 0.3em;
-	font-size: 1em;
+    width: 100vw;
+    height: 100vh;
 }
 
-#play{
-	background: gray;
-	width: 80vw;
-	height: 100vh;
+aside {
+    background: purple;
+    color: white;
 
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	padding-top: 10vh;
+    width: 20vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
 }
 
-#tablero{
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: row;
-	justify-content:center;
-	align-content:  center;
-	
-	width: 90vh;
-	height: 80vh;
+#titulo {
+    font-family: 'Electrolize';
 
-	background-color: lightblue;
-	margin: 5px;
-	border: 2px;
-	color: blue;
+    align-content: flex-start;
+    text-align: center;
+    padding: 0.7em;
+    font-size: 3em;
 }
 
-#tablero figure{
-	width: 20vh;
-	height: 20vh;
-	background: pink;
-	margin: 5px;
-	border-color:pink;
-	border-width: 2px;
+#jugador h3 {
+    font-family: 'Electrolize';
+    color: violet;
+    text-align: center;
+    padding: 0.3em;
+    font-size: 1.5em;
+}
+
+#instrucciones {
+    font-family: 'Electrolize';
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+}
+
+#instrucciones span {
+
+    text-align: center;
+    padding: 0.3em;
+    padding-top: 3em;
+    font-size: 1em;
+}
+
+#instrucciones p {
+    text-align: center;
+    padding: 0.3em;
+    font-size: 1em;
+}
+
+#play {
+    background: black;
+    width: 80vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 10vh;
+    border-radius: 40px 20px;
+}
+
+#tablero {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+
+    width: 90vh;
+    height: 80vh;
+
+    background-color: gray;
+    margin: 5px;
+    border: 2px;
+    color: blue;
+
+    border-radius: 40px 20px;
+}
+
+#tablero figure {
+    width: 20vh;
+    height: 20vh;
+    background: violet;
+    margin: 5px;
+    border-color: violet;
+    border-width: 2px;
+    border-radius: 40px 20px;
 }
 
 #tablero figure img {
-	width: 20vh;
-	height: 20vh;
+    width: 20vh;
+    height: 20vh;
+    	border-radius: 60px 40px;
 }
 
-img:hover{
-	 opacity: 0.9;
+.notChecked {
+    opacity: 0.9;
     filter: alpha(opacity=5);
-	 padding: 1px;
+    padding: 1px;
     background-color: pink;
-    transition: transform .2s; /* Animation */
+    transition: transform .2s;
+    /* Animation */
     margin: 0 auto;
-     -webkit-animation: spin 4s infinite linear;
+    -webkit-animation: spin 4s infinite linear;
 }
 
 @-webkit-keyframes spin {
-    0%  {-webkit-transform: rotate(0deg);}
-   25%  {-webkit-transform: rotate(5deg);}
-   75%  {-webkit-transform: rotate(-5deg);}
-    100% {-webkit-transform: rotate(0deg);}   
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    25% {
+        -webkit-transform: rotate(5deg);
+    }
+    75% {
+        -webkit-transform: rotate(-5deg);
+    }
+    100% {
+        -webkit-transform: rotate(0deg);
+    }
+}
 
+.checked {
+
+	 opacity: 0.9;
+    filter: alpha(opacity=5);
+    padding: 1px;
+    background-color: gray;
+    transition: transform .2s;
+    /* Animation */
+    margin: 0 auto;
+    -webkit-animation: vibrar 4s infinite linear;
+}
+
+@-webkit-keyframes vibrar {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    25% {
+        -webkit-transform: rotate(3deg);
+    }
+    75% {
+        -webkit-transform: rotate(-3deg);
+    }
+    100% {
+        -webkit-transform: rotate(0deg);
+    }
 }

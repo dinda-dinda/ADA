@@ -2,17 +2,17 @@
 var entradas = []; //aca
 
 //avatar
-var foto = "img/din.jpeg";
+var foto = "img/eucalipt.jpg";
 var nombre = "Dinda";
 
 //about me
-const infoPers = ["Artista", "Argentina", "hablo en binario"];
+const infoPlant = ["Arbol", "autoctono del lugar", "138 ramas"];
 
 //influencias
-var abramovich = ["abramovich", "img/abramovic.jpg"];
-var dali = ["dali", "img/dali.jpg"];
-var leparc = ["leparc", "img/leparc.jpg"];
-var influencias = [abramovich, dali, leparc];
+var ceibaSpeciosa = ["CeibaSpeciosa", "img/CeibaSpeciosa1.jpg", "img/florCeibaSpeciosa2.jpg"];
+var ficusPumila = ["FicusPumila", "img/ficus-pumila-1.jpg","img/hojasFicusPumila.jpg"];
+var fraxinus= ["Fraxinus","img/fraxinus.jpg","img/fraxinusflorHembra.jpg"];
+var influencias = [ceibaSpeciosa, ficusPumila, fraxinus];
 
 var amigosDiv = document.getElementById("amigos");
 
@@ -39,21 +39,21 @@ function displayAvatar(foto, nombre) {
  *   @params array con la info
  *   void 
  **/
-function cargarDatosPersonales(infoPers) {
+function cargarDatosPersonales(infoPlant) {
     var profes = document.createElement('h3');
-    profes.textContent = infoPers[0];
+    profes.textContent = infoPlant[0];
     profes.classList.add("Purple");
 
 
     var nacion = document.createElement('h3');
-    nacion.textContent = infoPers[1];
+    nacion.textContent = infoPlant[1];
 	nacion.classList.add("Purple");
     
     var aboutMe = document.createElement('h3');
-    aboutMe.textContent = infoPers[2];
+    aboutMe.textContent = infoPlant[2];
     aboutMe.classList.add("Purple");
 
-    var datosPerfil = document.getElementById('infoPers');
+    var datosPerfil = document.getElementById('infoPlant');
     datosPerfil.classList.add("Flex"); //le agrego una clase a datosPerfil
     
     
@@ -83,7 +83,7 @@ function crearMuro() {
 
         var li = document.createElement('li');
         var img = document.createElement('img');
-        img.src = "img/abramovic.jpg";
+        img.src = ceibaSpeciosa[1];
         img.classList.add("Thumb"); //le agrego una clase al li
 
         li.appendChild(img);
@@ -118,7 +118,7 @@ function publicar(muro) {
     entradas.push(text); //ingreso al array el texto de entrada.
     var li = document.createElement('li');
     var img = document.createElement('img');
-    img.src = "img/dali.jpg";
+    img.src = entradas;
     img.classList.add("Thumb"); //le agrego una clase a la img
     li.appendChild(img);
     var textoNewPost = document.createElement("p");
@@ -157,7 +157,7 @@ btnEnviar.addEventListener("click", crearMuro); //programacion por eventos
 
 
 displayAvatar(foto, nombre);
-cargarDatosPersonales(infoPers);
+cargarDatosPersonales(infoPlant);
 
 
 console.log("hola");

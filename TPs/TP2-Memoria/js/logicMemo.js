@@ -1,4 +1,4 @@
-var arrArboles = [
+var arboles = [
     "img/0.jpg",
     "img/1.jpg",
     "img/2.jpg",
@@ -18,45 +18,90 @@ var primerImagen = {
     'id': ''
 };
 
+var segundaImagen = {
+    'imagen': null,
+    'id': ''
+};
+
+/*        todos los img que estan en el figure les pone el attributo src default    
+ *        @param  -  return 
+ */
 function voltarCartas() {
+
     let backImg = "img/backImg.jpg";
     $('img').attr("src", backImg);
-
 }
 
-function verCarta() {
-    let id = $(this).attr("id");
-    $(this).find(':first-child').attr("src", arrArboles[id]);
 
-}
+/*        las imagenes que tienen la img del array las vuelve a la default        
+ *        @param  segundaImg -  return 
+ */
+function chequearCartas(id) {
+    //    let id = $(this).attr("id"); //En cada scope guardo el id del figure para comparar
+    console.log("chequearCartas + id = " + id);
 
-function chequearCartas() {
-    let id = $(this).attr("id");
-    /*    $(this).find(':first-child').attr("src", arrArboles[id]);*/
-
-    if (primerImagen.imagen == null) {
-        primerImagen.imagen = arrArboles[id]; //pongo src en objeto primerIm .imagen index-array
-        primerImagen.id = id; //me guardo el id del figure
+    if (primerImagen.imagen == null) { //si no tengo nada guardado como 1era imagen,
+        primerImagen.imagen = arboles[id]; //pongo src en objeto primerImagen.imagen el numero de index que corresponde con el id del figure
+        primerImagen.id = id; //me guardo el id del figure en primerImagen.
     } else {
-        if (primerImagen.imagen == arrArboles[id] &&
-            primerImagen.id != id) { //comparo
-            $(this).off(); //quito el evento
+        if (primerImagen.imagen == arboles[id] && //Si el src guardada en primerImagen es igual al numero de index
+            primerImagen.id != id) { //comparo el nuevo id de la segunda imagen con el guardado en primera imagen
+            
+            segundaImagen.id = id; //me guardo el id del figure en primerImagen.
+
+            console.log("id : "+id);
             $("#" + primerImagen.id).off(); //quito evento ;1era imagen
-            alert("SON IGUALES");
+            $("#" + segundaImagen.id).off(); //quito el evento a la segunda imagen
+                
+            console.log("# primerImagen : #"+primerImagen.id);
+            console.log("# segundaImagen : #"+segundaImagen.id);
+
+            $("#" + primerImagen.id).first().removeClass('notChecked'); //le quito la clase notChecked
+            $("#" + segundaImagen.id).first().removeClass('notChecked'); //le quito la clase notChecked
+            $("#" + primerImagen.id).first().addClass('checked'); //agrego nueva clase checked
+            $("#" + segundaImagen.id).first().addClass('checked'); //agrego nueva clase checked
+            
+
+//            alert("SON IGUALES");
+
+            primerImagen.imagen = null;
+            primerImagen.id = null;
+
+            segundaImagen.imagen = null;
+            segundaImagen.id = null;
         } else {
-            let backImg = "img/backImg.jpg";
-            $("#" + primerImagen.id).find(':first-child').attr("src", backImg);
-            $(this).find(':first-child').attr("src", backImg);
+            let segundaImg = id;
+            darVuelta(segundaImg);
         }
 
-        primerImagen.imagen = null;
-        primerImagen.id = null;
     }
 }
 
-/*
- *       mezcla el contenido de un array
- *        @param array  -  return array
+/*        las imagenes que ya tienen un src seteado (la img en el array) las vuelve a la default        
+ *        @param  segundaImg -  return 
+ */
+function darVuelta(segundaImg) {
+    let backImg = "img/backImg.jpg";
+    $("#" + primerImagen.id).find(':first-child').attr("src", backImg); //vuelta 1er imagen
+    $("#" + segundaImg).find(':first-child').attr("src", backImg); //vuelta 2da imagen
+
+    primerImagen.imagen = null;
+    primerImagen.id = null;
+}
+
+/*        trae el atributo ID del Figure, lo compara con el Index del array arboles
+ *     donde esta el src que le corresponde, cambiando la imagen de default.
+ *        @param  -  return id
+ */
+function verCarta() {
+    var id = $(this).attr("id");
+    $(this).find(':first-child').attr("src", arboles[id]); //
+    
+    chequearCartas(id);
+}
+
+/*        cambia los index del contenido de un array
+ *        @param array  -  return array(con el mismo contenido en distinto index)
  */
 function mezclarArray(a) {
     var j, x, i;
@@ -69,6 +114,7 @@ function mezclarArray(a) {
     return a;
 }
 $('figure').on('click', verCarta);
-$('figure').on('click', chequearCartas);
-mezclarArray(arrArboles);
+
+
+mezclarArray(arboles);
 voltarCartas();
