@@ -8,40 +8,49 @@
 </head>
 
 <body>
-    <main>
-        <aside>
-            <h1 id="titulo">Memo</h1>
-            <div id="jugador">
-                <h3>Single Player:</h3>
+    <main id="todo" >
+        <aside id="infoJuego">
+            <h1 class="Titulo">MEMO</h1>
+            <h3 class="Titulo">GREEN</h3>
+            <div>
+                <h3 id="nombreJugador" class="Jugador"></h3>
             </div>
             <section id="instrucciones">
-                <span>Instrucciones</span>
+                <p>Instrucciones</p>
                 <p>Haz Click sobre una ficha,
                     <br/> busca su compañera.
                     <br/>Intenta utilizar tu memoria!
                     <br/>Forma todos los pares.
                     <br/>Disfruta el Juego!</p>
+                    <br/>
+                    <br/>
+                <p>intentos restantes</p>
+                <h3 id="intentos"></h3>
             </section>
         </aside>
         <section id="play">
             <div id="tablero">
-                <figure id="0" class="notChecked"><img src=""></figure>
-                <figure id="1" class="notChecked"><img src=""></figure>
-                <figure id="2" class="notChecked"><img src=""></figure>
-                <figure id="3" class="notChecked"><img src=""></figure>
-                <figure id="4" class="notChecked"><img src=""></figure>
-                <figure id="5" class="notChecked"><img src=""></figure>
-                <figure id="6" class="notChecked"><img src=""></figure>
-                <figure id="7" class="notChecked"><img src=""></figure>
-                <figure id="8" class="notChecked"><img src=""></figure>
-                <figure id="9" class="notChecked"><img src=""></figure>
-                <figure id="10" class="notChecked"><img src=""></figure>
-                <figure id="11" class="notChecked"><img src=""></figure>
+                <figure id="0" ><img src=""></figure>
+                <figure id="1" ><img src=""></figure>
+                <figure id="2" ><img src=""></figure>
+                <figure id="3" ><img src=""></figure>
+                <figure id="4" ><img src=""></figure>
+                <figure id="5" ><img src=""></figure>
+                <figure id="6" ><img src=""></figure>
+                <figure id="7" ><img src=""></figure>
+                <figure id="8" ><img src=""></figure>
+                <figure id="9" ><img src=""></figure>
+                <figure id="10" ><img src=""></figure>
+                <figure id="11" ><img src=""></figure>
             </div>
         </section>
     </main>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/logicMemo.js"></script>
+    <script type="text/javascript" src="js/home.js"></script>
+
+
 </body>
 
 </html>

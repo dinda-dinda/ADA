@@ -1,171 +1,232 @@
 * {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
-
+.Text {
+  font-family: 'Electrolize';
+  text-align: center;
+  padding: 0.3em;
+  font-size: 1em;
+}
+.Flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+}
 main {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
-    background: purple;
-
-    width: 100vw;
-    height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  background: purple;
+  width: 100vw;
+  height: 100vh;
 }
-
 aside {
-    background: purple;
-    color: white;
-
-    width: 20vw;
-    height: 100vh;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: purple;
+  color: white;
+  width: 20vw;
+  height: 100vh;
 }
-
-#titulo {
-    font-family: 'Electrolize';
-
-    align-content: flex-start;
-    text-align: center;
-    padding: 0.7em;
-    font-size: 3em;
+.Titulo {
+  align-content: flex-start;
+  padding: 0.7em;
+  font-family: 'Electrolize';
+  text-align: center;
+  padding: 0.3em;
+  font-size: 1em;
+  font-size: 3em;
 }
-
-#jugador h3 {
-    font-family: 'Electrolize';
-    color: violet;
-    text-align: center;
-    padding: 0.3em;
-    font-size: 1.5em;
+h3 {
+  font-family: 'Electrolize';
+  text-align: center;
+  padding: 0.3em;
+  font-size: 1em;
+  color: violet;
+  font-size: 2em;
 }
-
 #instrucciones {
-    font-family: 'Electrolize';
-    display: flex;
-    flex-direction: column;
-    align-content: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-content: flex-start;
+  flex-direction: column;
+  font-family: 'Electrolize';
+  text-align: center;
+  padding: 0.3em;
+  font-size: 1em;
 }
-
 #instrucciones span {
-
-    text-align: center;
-    padding: 0.3em;
-    padding-top: 3em;
-    font-size: 1em;
+  font-family: 'Electrolize';
+  text-align: center;
+  padding: 0.3em;
+  font-size: 1em;
 }
-
-#instrucciones p {
-    text-align: center;
-    padding: 0.3em;
-    font-size: 1em;
+p {
+  font-family: 'Electrolize';
+  text-align: center;
+  padding: 0.3em;
+  font-size: 1em;
+  opacity: 0.8;
 }
-
 #play {
-    background: black;
-    width: 80vw;
-    height: 100vh;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding-top: 10vh;
-    border-radius: 40px 20px;
+  background: black;
+  width: 80vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  justify-content: space-around;
+  padding-top: 10vh;
+  border-radius: 40px 20px;
 }
-
 #tablero {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
-
-    width: 90vh;
-    height: 80vh;
-
-    background-color: gray;
-    margin: 5px;
-    border: 2px;
-    color: blue;
-
-    border-radius: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 90vh;
+  height: 80vh;
+  background-color: gray;
+  margin: 5px;
+  border: 2px;
+  color: blue;
+  border-radius: 40px 20px;
 }
-
 #tablero figure {
-    width: 20vh;
-    height: 20vh;
-    background: violet;
-    margin: 5px;
-    border-color: violet;
-    border-width: 2px;
-    border-radius: 40px 20px;
+  width: 20vh;
+  height: 20vh;
+  background: violet;
+  margin: 5px;
+  border-color: violet;
+  border-width: 2px;
+  border-radius: 40px 20px;
 }
-
 #tablero figure img {
-    width: 20vh;
-    height: 20vh;
-    	border-radius: 60px 40px;
+  width: 20vh;
+  height: 20vh;
+  border-radius: 60px 40px;
 }
-
 .notChecked {
-    opacity: 0.9;
-    filter: alpha(opacity=5);
-    padding: 1px;
-    background-color: pink;
-    transition: transform .2s;
-    /* Animation */
-    margin: 0 auto;
-    transition-timing-function: ease;
-    -webkit-animation: spin 4s infinite linear;
+  opacity: 0.9;
+  filter: alpha(opacity=5);
+  padding: 1px;
+  background-color: pink;
+  transition: transform .2s;
+  /* Animation */
+  margin: 0 auto;
+  transition-timing-function: ease;
+  -webkit-animation: spin 4s infinite linear;
 }
-
 @-webkit-keyframes spin {
-    0% {
-        -webkit-transform: rotate(0deg);
-    }
-    25% {
-        -webkit-transform: rotate(5deg);
-    }
-    75% {
-        -webkit-transform: rotate(-5deg);
-    }
-    100% {
-        -webkit-transform: rotate(0deg);
-    }
-}
-
-.checked {
-
-	 opacity: 0.9;
-    filter: alpha(opacity=5);
-    padding: 1px;
-    background-color: gray;
-
-    transition: transform .2s;
-    /* Animation */
-    margin: 0 auto;
-   	-webkit-animation: color-me-in 4s infinite linear;
-}
-
-	 @keyframes color-me-in {
   0% {
-    background: black;
+    -webkit-transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(5deg);
+  }
+  75% {
+    -webkit-transform: rotate(-5deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+  }
+}
+.checked {
+  opacity: 0.9;
+  filter: alpha(opacity=5);
+  padding: 1px;
+  background-color: gray;
+  transition: transform .2s;
+  /* Animation */
+  margin: 0 auto;
+  -webkit-animation: color-me-in 4s infinite linear;
+}
+@keyframes color-me-in {
+  0% {
+    background: #141414;
+  }
+  10% {
+    background: purple;
   }
   /* Adding a step in the middle */
-  50% {
+  70% {
+    background: silver;
+  }
+  80% {
     background: purple;
   }
   100% {
-    background: black;
+    background: #141414;
   }
 }
-
-
-.mirando{
-
+.Entrada {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  font-family: 'Electrolize';
+  text-align: center;
+  padding: 0.3em;
+  font-size: 1em;
+  flex-direction: column;
+  -webkit-animation: color-me-in 4s infinite linear;
+  background: silver;
+  width: 50vw;
+  height: 80vh;
+  border-radius: 40px 20px;
+}
+input {
+  font-family: 'Electrolize';
+  text-align: center;
+  padding: 0.3em;
+  font-size: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+}
+label {
+  font-family: 'Electrolize';
+  text-align: center;
+  padding: 0.3em;
+  font-size: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+}
+button {
+  font-family: 'Electrolize';
+  padding: 0.3em;
+  font-size: 1em;
+  text-align: center;
+}
+select {
+  font-family: 'Electrolize';
+  padding: 0.3em;
+  font-size: 1em;
+  text-align: center;
+}
+#backgroundEntrada {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  padding-top: 5vw;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
 }

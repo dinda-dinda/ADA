@@ -1,22 +1,23 @@
- var paresEncontrados = 0;
- var intentos = 0;
- var limiteIntentos = 20;
+/*Dinda Daiana Indaburo
+TP2 - MemoTest 
 
-function MemoTest() {
-    var arboles = [
-        "img/0.jpg",
-        "img/1.jpg",
-        "img/2.jpg",
-        "img/3.jpg",
-        "img/4.jpg",
-        "img/5.jpg",
-        "img/0.jpg",
-        "img/1.jpg",
-        "img/2.jpg",
-        "img/3.jpg",
-        "img/4.jpg",
-        "img/5.jpg"
-    ];
+ADA BootCamp FrontEnd
+3era Generacion TM 2018 
+
+Profesora Belen Alegre
+Adjunta Estefania
+*/
+
+/*
+ *arma el memoTest dependiendo del tipo de juego, carga las imagenes correspondientes
+ *param tipo de juego
+ *
+ */
+
+function MemoTest(tipoJuego) {
+    var paresEncontrados = 0;
+    var intentos = 0;
+    var limiteIntentos = 45;
 
     var primerImagen = {
         'imagen': null,
@@ -28,25 +29,133 @@ function MemoTest() {
         'id': ''
     };
 
-    /*        todos los img que estan en el figure les pone el attributo src default    
+    var arrayJuego;
+
+/*cambia el valor de la variable arrayJuego (con los src de las imagenes) teniendo en cuenta la eleccion en el select del home
+*/
+    function definirArraydeJuego() {
+        if (tipoJuego == "arboles") {
+            arrayJuego = [
+                "img/arboles/0.jpg",
+                "img/arboles/1.jpg",
+                "img/arboles/2.jpg",
+                "img/arboles/3.jpg",
+                "img/arboles/4.jpg",
+                "img/arboles/5.jpg",
+                "img/arboles/0.jpg",
+                "img/arboles/1.jpg",
+                "img/arboles/2.jpg",
+                "img/arboles/3.jpg",
+                "img/arboles/4.jpg",
+                "img/arboles/5.jpg"
+            ];
+        } else {
+            arrayJuego = [
+                "img/flores/0.jpg",
+                "img/flores/1.jpg",
+                "img/flores/2.jpg",
+                "img/flores/3.jpg",
+                "img/flores/4.jpg",
+                "img/flores/5.jpg",
+                "img/flores/0.jpg",
+                "img/flores/1.jpg",
+                "img/flores/2.jpg",
+                "img/flores/3.jpg",
+                "img/flores/4.jpg",
+                "img/flores/5.jpg"
+            ];
+
+        }
+
+    }
+
+/*en cada intento, actualiza el numero de intentos restantes*/
+    $('#intentos').text(limiteIntentos);
+
+/*
+*Quito las clases checked y agrego las notChecked - Principio del juego
+*/
+    function agregarClases() {
+        for (var i = arrayJuego.length - 1; i >= 0; i--) {
+
+            $("#" + i).first().addClass('notChecked'); //le agrego la clase notChecked
+            $("#" + i).first().removeClass('checked'); //le quita la clase notChecked
+        }
+    }
+
+    /*        todos los img que estan en el figure les pone el attributo src default
+                que les corresponde segun la eleccion del input. (guardado en variable backImg)    
      *        @param  -  return 
      */
     function voltarCartas() {
-        let backImg = "img/backImg.jpg";
+        let backImg;
+        if (tipoJuego == "arboles") {
+            backImg = "img/arboles/backImg.jpg";
+
+        } else {
+            backImg = "img/flores/backImg.jpg";
+        }
+
         $('img').attr("src", backImg).delay(800).fadeIn(400);
     }
 
+/*      Cambia el mensaje de Finalizado del Juego
+*       Redirecciona segun el click
+*/
+    function finPartida(gano) {
+        let mensaje;
+        let icono;
 
-    function guardarIDsSegundaCarta(id) {
-        if(intentos == limiteIntentos)  {
-            alert('GAME OVER BITCH!');
+        if (gano) {
+            mensaje = "Yeah, Ganaste!";
+            icono = "success"
         } else {
-            intentos++;
-            segundaImagen.imagen = arboles[id]; //pongo src en objeto segundaImagen.imagen el numero de index que corresponde con el id del figure
-            segundaImagen.id = id; //me guardo el id del figure en primerImagen
-        } 
+            mensaje = "Awww, perdiste!";
+            icono = "error"
+        }
+
+        swal(mensaje, {
+                buttons: {
+                    no: "Salir del Juego",
+                    si: "Jugar de Nuevo"
+                }
+            })
+            .then((value) => {
+                switch (value) {
+                    case "no":
+                        location.reload();
+                        break;
+
+                    case "si":
+                        intentos = 0;
+                        paresEncontrados = 0;
+                        limiteIntentos = 45;
+                        MemoTest(tipoJuego);
+                        break;
+                }
+            });
     }
 
+    /*
+     *Guardo el ID de la segunda carta y modifico los intentos restantes.
+     *param ID
+     */
+
+    function guardarIDsSegundaCarta(id) {
+        if (intentos == limiteIntentos) {
+            finPartida(false);
+        } else {
+            intentos++; //suma de intentos fallidos
+            $('#intentos').text(limiteIntentos - intentos); //Display de intentos
+            segundaImagen.imagen = arrayJuego[id]; //pongo src en objeto segundaImagen.imagen el numero de index que corresponde con el id del figure
+            segundaImagen.id = id; //me guardo el id del figure en primerImagen
+        }
+    }
+
+    
+    /*
+    *Limpia los objetos llevando a null
+    */
     function borrarIDsPrimerSegundaImagenNull() {
         primerImagen.imagen = null;
         primerImagen.id = null;
@@ -59,15 +168,15 @@ function MemoTest() {
      */
     function chequearCartas(id) {
         if (primerImagen.imagen == null) { //si no tengo nada guardado como 1era imagen,
-            primerImagen.imagen = arboles[id]; //pongo src en objeto primerImagen.imagen el numero de index que corresponde con el id del figure
+            primerImagen.imagen = arrayJuego[id]; //pongo src en objeto primerImagen.imagen el numero de index que corresponde con el id del figure
             primerImagen.id = id; //me guardo el id del figure en primerImagen.
         } else {
-            if (primerImagen.imagen == arboles[id] && //Si el src guardada en primerImagen es igual al numero de index
+            if (primerImagen.imagen == arrayJuego[id] && //Si el src guardada en primerImagen es igual al numero de index
                 primerImagen.id != id) { //comparo el nuevo id de la segunda imagen con el guardado en primera imagen
 
                 paresEncontrados++;
 
-                guardarIDsSegundaCarta(id, arboles);
+                guardarIDsSegundaCarta(id, arrayJuego);
 
                 $("#" + primerImagen.id).off(); //quito evento ;1era imagen
                 $("#" + segundaImagen.id).off(); //quito el evento a la segunda imagen
@@ -77,22 +186,21 @@ function MemoTest() {
                 $("#" + primerImagen.id).first().addClass('checked'); //agrego nueva clase checked
                 $("#" + segundaImagen.id).first().addClass('checked'); //agrego nueva clase checked
 
-                if(paresEncontrados == arboles.length / 2){
-                    alert("BITCH YOU WIN!");
+                if (paresEncontrados == arrayJuego.length / 2) { //si se encontraron todos los pares, termina partida
+                    finPartida(true);
+
                 }
                 borrarIDsPrimerSegundaImagenNull(primerImagen, segundaImagen);
 
-            } else {
+            } else {                                //si todavia quedan pares por encontrar y tengo guardada una primera imagen que es distinta al id, Guardo el ID.
                 if (primerImagen.id != id) {
-                    guardarIDsSegundaCarta(id, arboles);
+                    guardarIDsSegundaCarta(id, arrayJuego);
 
                     function showNext() {
-                        //   $("#" + segundaImagen.id).hide(1000);
-                        //  $("#" + primerImagen.id).hide(1000);
                         $("#" + segundaImagen.id).show(1000);
                         $("#" + primerImagen.id).show(1000);
                     }
-                    window.setTimeout(darVuelta, 1500);
+                    window.setTimeout(darVuelta, 1000);
                 }
             }
         }
@@ -103,7 +211,13 @@ function MemoTest() {
      *
      */
     function darVuelta() {
-        let backImg = "img/backImg.jpg";
+        let backImg;
+        if (tipoJuego == "arboles") {
+            backImg = "img/arboles/backImg.jpg";
+
+        } else {
+            backImg = "img/flores/backImg.jpg";
+        }
         $("#" + primerImagen.id).find(':first-child').attr("src", backImg); //vuelta 1er imagen
         $("#" + segundaImagen.id).find(':first-child').attr("src", backImg); //vuelta 2da imagen
         $("#" + primerImagen.id).removeClass("mirando");
@@ -118,7 +232,7 @@ function MemoTest() {
     function verCarta() {
         if (segundaImagen.imagen == null) {
             var id = $(this).attr("id");
-            $(this).find(':first-child').attr("src", arboles[id]);
+            $(this).find(':first-child').attr("src", arrayJuego[id]);
             $(this).addClass("mirando"); //    
             chequearCartas(id);
         }
@@ -139,9 +253,8 @@ function MemoTest() {
     }
     $('figure').on('click', verCarta);
 
-
-    mezclarArray(arboles);
+    definirArraydeJuego();
+    agregarClases();
+    mezclarArray(arrayJuego);
     voltarCartas();
 }
-
-MemoTest();
