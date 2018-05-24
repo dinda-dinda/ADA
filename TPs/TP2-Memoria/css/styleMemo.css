@@ -51,7 +51,7 @@ h3 {
   padding: 0.3em;
   font-size: 1em;
   color: violet;
-  font-size: 2em;
+  font-size: 1.5em;
 }
 #instrucciones {
   display: flex;
@@ -231,7 +231,7 @@ select {
   height: 100vh;
 }
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 500px) {
   #backgroundEntrada {
     width: 100vw;
     height: 100vh;
@@ -241,7 +241,7 @@ select {
     align-content: center;
   }
   #newGameWindow {
-    width: 90vw;
+    width: 100vw;
     height: 80vh;
   }
   main {
@@ -256,8 +256,8 @@ select {
   #infoJuego {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-content: center;
+    justify-content: flex-start;
+    align-content: flex-start;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
@@ -277,6 +277,7 @@ select {
     align-items: center;
     flex-wrap: wrap;
     padding-top: 0;
+    margin-top: 20px;
   }
   p {
     align-items: baseline;
@@ -284,7 +285,7 @@ select {
     font-size: 0.6em;
   }
   #tablero {
-    width: 92vw;
+    width: 100vw;
     height: 75vh;
     display: flex;
     flex-direction: row;
@@ -304,22 +305,30 @@ select {
     max-height: 30vw;
   }
   .Titulo {
-    font-size: 2em;
+    font-size: 1.5em;
     padding: 0;
     margin: 0;
   }
   #instrucciones {
-    display: none;
+    flex-direction: row;
+    text-align: center;
+
   }
   #intentos {
     display: table-cell;
   }
+  #turnos{
+    position: absolute;
+  margin-left: 40vw;
+  }
 }
-/* For tablets: */
+
+/* For tablets:
 @media only screen and (max-width: 780px) {
   .Titulo {
-    font-size: 2em;
+    font-size: 1.5em;
     padding: 0;
     margin: 0;
   }
 }
+*/
