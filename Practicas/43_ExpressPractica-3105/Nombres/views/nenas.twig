@@ -1,0 +1,15 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+
+<h1>Bienvenido a {{title}}</h1>
+
+<div class="rosa">
+    <ul>
+        {% for i in nena %}
+            <li>{{ i }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

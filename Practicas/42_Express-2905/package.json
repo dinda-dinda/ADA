@@ -1,0 +1,14 @@
+{
+  "name": "42_express-2905",
+  "version": "1.0.0",
+  "description": "",
+  "main": "\u001b[A\u001b[B\u001b[A\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5DDindaExpress\u001b[B",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}

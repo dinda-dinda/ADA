@@ -1,0 +1,12 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+  <h1>Bienvenido a {{title}}</h1>
+<div class="amarillo">
+<ul>
+    {% for i in nombres %}
+        <li>{{ i }}</li>
+    {% endfor %}
+</ul>
+</div>
+{% endblock %}

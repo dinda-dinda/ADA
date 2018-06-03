@@ -1,0 +1,22 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+  <h1>{{title}}</h1>
+ 
+<div class="datos">
+<ul>
+        
+        </ul>  
+    
+        {% for i in infoPersonas %}
+        <ul>
+            <li><span>Nombre: </span>{{i.nombre}}</li> 
+            <li><span>Dni: </span>{{i.dni}}</li> 
+            <li><span>Grupo Sanguineo: </span>{{i.gs}}</li> 
+            <li><span>Alergias: </span>{{i.alergias}}</li> 
+        </ul>
+        {% endfor %}
+</div>
+<p>esta es toda la informacion cargada</p>
+
+{% endblock %}

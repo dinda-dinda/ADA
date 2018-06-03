@@ -2,16 +2,16 @@
 var entradas = []; //aca
 
 //avatar
-var foto = "img/eucalipt.jpg";
-var nombre = "Dinda";
+var foto = "img/euca2.jpg";
+var nombre = "Silver";
 
 //about me
 const infoPlant = ["Arbol", "autoctono del lugar", "138 ramas"];
 
 //influencias
-var ceibaSpeciosa = ["CeibaSpeciosa", "img/CeibaSpeciosa1.jpg", "img/florCeibaSpeciosa2.jpg"];
-var ficusPumila = ["FicusPumila", "img/ficus-pumila-1.jpg","img/hojasFicusPumila.jpg"];
-var fraxinus= ["Fraxinus","img/fraxinus.jpg","img/fraxinusflorHembra.jpg"];
+var ceibaSpeciosa = ["CeibaSpeciosa", "img/CeibaSpeciosa1100x100.jpg", "img/florCeibaSpeciosa150x150.jpg"];
+var ficusPumila = ["FicusPumila", "img/hojasFicusPumila100x100.jpg","img/hojasFicusPumila150x150.jpg"];
+var fraxinus= ["Fraxinus","img/fraxinus100x100​.jpg","img/fraxinus​florHembra150x150.jpg"];
 var influencias = [ceibaSpeciosa, ficusPumila, fraxinus];
 
 var amigosDiv = document.getElementById("amigos");
@@ -40,10 +40,9 @@ function displayAvatar(foto, nombre) {
  *   void 
  **/
 function cargarDatosPersonales(infoPlant) {
-    var profes = document.createElement('h3');
-    profes.textContent = infoPlant[0];
-    profes.classList.add("Purple");
-
+    var especie = document.createElement('h3');
+    especie.textContent = infoPlant[0];
+    especie.classList.add("Text");
 
     var nacion = document.createElement('h3');
     nacion.textContent = infoPlant[1];
@@ -57,9 +56,9 @@ function cargarDatosPersonales(infoPlant) {
     datosPerfil.classList.add("Flex"); //le agrego una clase a datosPerfil
     
     
-    datosPerfil.appendChild(profes);
-    datosPerfil.appendChild(nacion);
-    datosPerfil.appendChild(aboutMe);
+    infoPlant.appendChild(amigos);
+    infoPlant.appendChild(nacion);
+    infoPlant.appendChild(aboutMe);
 }
 
 

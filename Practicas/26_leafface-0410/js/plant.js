@@ -4,8 +4,8 @@ class Plant {
     	this._nombre = "";
     	this._especie = "";
     	
-    	this._altura = "";
-    	this._profundidad = "";
+    	this._srcPhotoPerfil = "";
+    	this._amigos = "";
     	this._densidad = "";
     	
     }
