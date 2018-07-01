@@ -1,0 +1,799 @@
+/*MemoTest BEGREEN
+By Dinda - ADA BootCamp FrontEnd 2018
+*/
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+/*Paleta de colores - MDesign*/
+.Text {
+  font-family: 'Electrolize';
+  text-align: center;
+  font-size: 1em;
+}
+.Flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+}
+td {
+  text-align: center;
+}
+main {
+  position: relative;
+  background: #b0ff57;
+  width: 100vw;
+  height: 100vh;
+}
+aside {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  padding-top: 2em;
+  flex-direction: column;
+  justify-content: space-around;
+  background: #a98274;
+  color: black;
+  margin-left: 10px;
+  margin-right: 5px;
+  width: 20vw;
+  height: 100vh;
+}
+.Titulo {
+  align-content: flex-start;
+  justify-content: space-around;
+  font-family: 'Electrolize';
+  text-align: center;
+  font-size: 1em;
+  color: black;
+  padding: 0.5em;
+  font-size: 2em;
+}
+h3 {
+  font-family: 'Electrolize';
+  text-align: center;
+  font-size: 1em;
+  color: black;
+  font-size: 1.5em;
+}
+#instrucciones {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-content: flex-start;
+  flex-direction: column;
+  font-family: 'Electrolize';
+  text-align: center;
+  font-size: 1em;
+}
+#instrucciones span {
+  font-family: 'Electrolize';
+  text-align: center;
+  font-size: 1em;
+}
+p {
+  font-family: 'Electrolize';
+  text-align: center;
+  padding: 0.3em;
+  font-size: 1em;
+}
+#play {
+  background: white;
+  width: 80vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 40px 20px;
+}
+#tablero {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: row;
+  align-self: center;
+  flex-wrap: wrap;
+  width: 90vh;
+  height: 80vh;
+  background-color: #a98274;
+  margin: 5px;
+  border: 2px;
+  color: blue;
+  border-radius: 40px 20px;
+}
+#tablero figure {
+  width: 20vh;
+  height: 20vh;
+  background: #795548;
+  margin: 5px;
+  border-color: #795548;
+  box-shadow: 5px 5px 5px #4b2c20;
+  border-width: 2px;
+  border-radius: 40px 20px;
+}
+#tablero figure img {
+  width: 20vh;
+  height: 20vh;
+  border-radius: 60px 40px;
+}
+.notChecked {
+  opacity: 0.9;
+  filter: alpha(opacity=5);
+  padding: 1px;
+  background-color: #a98274;
+  transition: transform .2s;
+  /* Animation */
+  margin: 0 auto;
+  transition-timing-function: ease;
+  -webkit-animation: spin 4s infinite linear;
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(5deg);
+  }
+  75% {
+    -webkit-transform: rotate(-5deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+  }
+}
+.checked {
+  opacity: 0.9;
+  filter: alpha(opacity=5);
+  padding: 1px;
+  background-color: #76ff03;
+  transition: transform .2s;
+  /* Animation */
+  margin: 0 auto;
+  -webkit-animation: color-me-in 4s infinite linear;
+}
+@-webkit-keyframes color-me-in {
+  0% {
+    background: S-DarkGreen;
+  }
+  50% {
+    background: #b0ff57;
+  }
+  100% {
+    background: #32cb00;
+  }
+}
+/*--dark shadow animation------*/
+@-webkit-keyframes mymove {
+  0% {
+    box-shadow: 5px 15px 20px #4b2c20;
+  }
+  70% {
+    box-shadow: 10px 20px 30px #4b2c20;
+  }
+  100% {
+    box-shadow: 5px 15px 20px #4b2c20;
+  }
+}
+/*--------*/
+.Entrada {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  font-family: 'Electrolize';
+  text-align: center;
+  font-size: 1em;
+  padding: 1vw;
+  margin: 1vw;
+  width: 50vw;
+  height: 80vh;
+  border-radius: 40px 20px;
+  flex-direction: column;
+  background: #a98274;
+  -webkit-animation: mymove 5s infinite /*, 
+                       color-me-in 5s infinite linear*/;
+}
+input {
+  font-family: 'Electrolize';
+  text-align: center;
+  font-size: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  border-radius: 10px;
+  font-size: 1.5em;
+  height: 1.5em;
+}
+label {
+  font-family: 'Electrolize';
+  text-align: center;
+  font-size: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  margin: 5px;
+  flex-direction: column;
+}
+/*------------Button---------*/
+button {
+  font-family: 'Electrolize';
+  font-size: 1em;
+  text-align: center;
+  border-radius: 4px;
+  background-color: #795548;
+  box-shadow: 5px 10px 10px #4b2c20;
+  border: none;
+  color: white;
+  font-size: 28px;
+  padding: 10px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 2vw;
+  padding: 1vw;
+  align-self: center;
+}
+button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+  background-color: rgba(121, 85, 72, 0.06);
+}
+button:hover span {
+  padding-right: 25px;
+}
+button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+/*--end of button----------------*/
+select {
+  font-family: 'Electrolize';
+  font-size: 1em;
+  margin: 5px;
+  padding: 1px;
+  text-align: center;
+  height: 1.5em;
+  border-radius: 10px;
+  font-size: 1.5em;
+}
+#backgroundEntrada {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5vw;
+  justify-content: space-around;
+  width: 100vw;
+  height: 110vh;
+  background-color: #795548;
+}
+/*small devices (phones, 800px and down) */
+@media only screen and (max-width: 800px) {
+  h2 {
+    font-size: 1em;
+  }
+  #backgroundEntrada {
+    width: 100vw;
+    height: 110vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0px;
+    padding: 0px;
+    flex-direction: column;
+  }
+  #newGameWindow {
+    width: 95vw;
+    height: 80vh;
+  }
+  main {
+    width: 100vw;
+    height: 100vh;
+  }
+  #TituloAside {
+    margin-bottom: 30px;
+    margin-top: 200px;
+    height: 30vh;
+  }
+  .logo:before {
+    font-size: 1em;
+  }
+  nav {
+    display: none;
+  }
+  .THNum {
+    font-size: 1em;
+  }
+  .THPosic {
+    font-size: 1em;
+  }
+  .THNombre {
+    font-size: 1em;
+  }
+  .THJuego {
+    font-size: 1em;
+  }
+  .THMovs {
+    font-size: 1em;
+  }
+  .THComm {
+    font-size: 1em;
+  }
+  #historico {
+    width: 95vw;
+  }
+  #RankingUl {
+    width: 90vw;
+  }
+  #infoJuego {
+    background-color: #b0ff57;
+    width: 100vw;
+    height: 10vh;
+  }
+  .Flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0px;
+    padding: 0px;
+  }
+  #labels {
+    width: 90vw;
+    /*hacer mediaQuery para Cel*/
+  }
+  p {
+    align-items: baseline;
+    justify-content: flex-end;
+    font-size: 0.6em;
+  }
+  #play {
+    margin-top: 150px;
+    width: 100vw;
+    height: 90vw;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #tablero {
+    width: 95vw;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row;
+    align-self: center;
+    flex-wrap: wrap;
+  }
+  #labels {
+    padding: 0px 10px;
+    width: 90vw;
+  }
+  #tablero figure {
+    margin: 5px;
+    padding: 5px;
+    max-width: 20vw;
+    max-height: 20vw;
+  }
+  #tablero figure img {
+    max-width: 20vw;
+    max-height: 20vw;
+  }
+  .Titulo {
+    font-size: 2em;
+    padding: 0;
+    margin: 0;
+  }
+  #instrucciones {
+    display: none;
+  }
+  #labels {
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
+    flex-direction: row;
+    width: auto;
+  }
+}
+/* For tablets: */
+@media only screen and (max-width: 1080px) {
+  #infoJuego {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 90vw;
+    height: 20vh;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 50px;
+  }
+  #labels {
+    padding-right: 10px;
+    width: 90vw;
+  }
+  .Titulo {
+    font-size: 2em;
+    padding: 0;
+    margin: 0;
+  }
+}
+/*------------*/
+.slidecontainer {
+  width: 100%;
+  /* Width of the outside container */
+}
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;
+  /* Override default CSS styles */
+  appearance: none;
+  width: 100%;
+  /* Full-width */
+  height: 15px;
+  /* Specified height */
+  border-radius: 5px;
+  background: #fafafa;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  /*transition on hover */
+  transition: opacity .2s;
+}
+.slider:hover {
+  opacity: 1;
+  /* Fully shown*/
+}
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  /* Override default look */
+  appearance: none;
+  /*  width: 40px; 
+    height: 52px; 
+    background: url('../img/leafIco2.png');*/
+  width: 40px;
+  height: 40px;
+  background: url('../img/leafIco.png');
+  border-radius: 50%;
+  cursor: pointer;
+  /* Cursor on hover */
+}
+.slider::-moz-range-thumb {
+  /* width: 40px;
+    height: 52px; 
+    background: url('../img/leafIco2.png'); */
+  width: 40px;
+  height: 40px;
+  background: url('../img/leafIco.png');
+  border-radius: 50%;
+  cursor: pointer;
+  /* Cursor on hover */
+}
+/*-Barra de Progreso--*/
+#progreso {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  margin: 1vw;
+  height: 7vh;
+  width: 90%;
+  background-color: #b0ff57;
+  border-radius: 10px;
+}
+#barra {
+  width: 0%;
+  height: 5vh;
+  margin: 1vw;
+  border-radius: 10px;
+  background-color: #32cb00;
+  font-family: 'Electrolize';
+  text-align: center;
+  font-size: 1em;
+}
+/*----header---*/
+/* Style the header with a grey background and some padding */
+/*@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+*/
+.header {
+  position: relative;
+  height: 400px;
+  color: black;
+  text-align: center;
+  background: url('../img/beGreenbyDinda2.png') no-repeat center center;
+  /*Imagen de mohammad-gh-682387 por unsplash*/
+  background-size: cover;
+}
+.header:after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /*background: @S-LightGreen;*/
+}
+.inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  z-index: 10;
+  transform: translateX(-50%) translateY(-50%);
+  animation: fade-in 0.75s 0.25s ease-in forwards;
+}
+.inner h1 {
+  color: #b0ff57;
+  margin: 0;
+  font-size: 4em;
+  line-height: 1.2em;
+}
+.inner p {
+  color: #4b2c20;
+  margin: 0;
+  font-size: 1.4em;
+  font-style: italic;
+  font-family: serif;
+}
+nav {
+  height: 10vh;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+nav.scrolled {
+  background: #b0ff57;
+}
+nav ul {
+  float: right;
+  list-style: none;
+  padding: 25px;
+  margin: 0;
+}
+nav li {
+  float: left;
+}
+nav a {
+  font-size: 0.9em;
+  color: #fff;
+  text-decoration: none;
+  margin: 5px 0 0 20px;
+  display: white;
+}
+nav a:hover {
+  color: #ededed;
+}
+.logo {
+  height: 50px;
+  float: left;
+}
+.logo:before,
+.logo:after {
+  position: absolute;
+  font-size: 2em;
+  font-weight: 31;
+  line-height: 0;
+  color: black;
+  top: 25px;
+}
+.logo:before {
+  content: 'beGreenbyDinda';
+  left: 25px;
+}
+.logo:after {
+  content: '';
+  left: : 100px;
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+#nivelJuego {
+  display: flex;
+  flex-direction: column;
+}
+#labels {
+  display: flex;
+  align-self: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+/*------------ Ranking!! --------*/
+.ranking {
+  /*background-color: @P-DarkBrown;*/
+  background: url('../img/background.png') no-repeat center center;
+  background-size: cover;
+  color: white;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  font-family: 'Electrolize';
+  text-align: center;
+  font-size: 1em;
+}
+#ranking header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  text-align: center;
+  width: 80vw;
+  height: 20vh;
+}
+.sectionLi {
+  /*section ul and li ranking*/
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  width: 80vw;
+  min-height: 50vh;
+  align-items: center;
+  background: rgba(176, 255, 87, 0.3);
+  /*Imagen de mohammad-gh-682387 por unsplash*/
+  color: black;
+  border-radius: 50px;
+  padding: 3vh;
+}
+.rankingUl {
+  width: 90vw;
+}
+.liHistorico {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: 'Electrolize';
+  text-align: center;
+  font-size: 1em;
+  width: 75vw;
+}
+.rankingCell {
+  width: 15vw;
+  text-align: center;
+}
+.nombreGanador {
+  font-family: 'Electrolize';
+  text-align: center;
+  font-size: 1em;
+  color: black;
+}
+.juego {
+  font-family: 'Electrolize';
+  text-align: center;
+  font-size: 1em;
+  color: #4b2c20;
+}
+.comentario {
+  font-family: 'Electrolize';
+  text-align: center;
+  font-size: 1em;
+  color: black;
+}
+.TituloRanking {
+  align-content: flex-start;
+  justify-content: space-around;
+  font-family: 'Electrolize';
+  text-align: center;
+  font-size: 1em;
+  color: black;
+  padding: 0.5em;
+  font-size: 2em;
+  width: 100vw;
+  padding: 1vh 1vw;
+}
+#rankingHistoricoTitulo {
+  align-content: flex-start;
+  justify-content: space-around;
+  font-family: 'Electrolize';
+  text-align: center;
+  font-size: 1em;
+  color: black;
+  padding: 0.5em;
+  font-size: 2em;
+}
+.TH {
+  font-family: 'Electrolize';
+  height: 2em;
+  margin: 2vw 2vh;
+  padding: 2vw 2vh;
+}
+.THNum {
+  color: black;
+  width: 8vw;
+}
+.THPosic {
+  color: black;
+  width: 5vw;
+}
+.THNombre {
+  color: black;
+  width: 20vw;
+}
+.THJuego {
+  color: black;
+  width: 10vw;
+}
+.THMovs {
+  color: black;
+  width: 8vw;
+}
+.THComm {
+  color: black;
+  width: 30vw;
+}
+.navButton {
+  align-self: flex-end;
+  font-family: 'Electrolize';
+  text-align: center;
+  width: 100px;
+  height: 30px;
+  font-size: 1em;
+}
+#backgroundHistorico {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  width: 100vw;
+}
+.alignCenter {
+  align-self: center;
+}
+#ganadorRanking {
+  padding-top: 5vh;
+}
+/*----MarketingDisegnColor------*/
+#myRange {
+  background: #b0ff57;
+}
+#TituloAside {
+  width: 100%;
+  border-color: #795548;
+  border-style: solid;
+  border-width: 6px;
+  border-radius: 10px;
+  background: #b0ff57;
+  color: black;
+}
+#NombreJugador {
+  width: 100%;
+  color: white;
+  background: #32cb00;
+}

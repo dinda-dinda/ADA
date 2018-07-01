@@ -1,0 +1,14 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+  <h1>{{title}}</h1>
+  <p>Bienvenida a la planilla de Ingreso</p>
+
+	<label>Nombre: </label><label id="nombReq"></label><input type="text" name="name" placeholder="Ingrese su nombre"></br>
+	<label>Apellido: </label><label id="apelReq"></label><input type="text" name="apellido" placeholder="Ingrese su apellido"></br>
+	<label>Telefono: </label><label id="telReq"></label><input type="text" name="telefono" placeholder="Ingrese su Telefono"></br>
+	<label>Email: </label><label id="emailReq"></label><input type="text" name="email" placeholder="Ingrese su Email"></br></br>
+
+<button id="btn" name="Enviar" onClick= onclickBtn >Enviar</button>
+
+{% endblock %}

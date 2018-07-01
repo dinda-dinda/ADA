@@ -1,0 +1,97 @@
+<!--MemoTest BEGREEN
+By Dinda - ADA BootCamp FrontEnd 2018 -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Memo</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="css/styleMemo.css">
+    <link href='https://fonts.googleapis.com/css?family=Electrolize' rel='stylesheet'>
+    <meta name="MemoGreen" content="width=device-width, initial-scale=1.0">
+
+
+</head>
+
+<body>
+    <main id="todo">
+        <nav>
+            <a href="index.html" class="logo"></a>
+            <!--DEVELOPER BUTTONS-->
+            <!--
+            <div style="float: right;">
+            <button id="developerWin" class="navButton accent-color">Win</button>
+            <button id="developerLose" class="navButton accent-color">Lose</button>
+            <button id="cleanLS" class="navButton accent-color">cleanLS</button> 
+            </div>
+            -->
+            <!--futuro desarrollo
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">News</a></li>
+                <li><a class="active" href="#">Contact</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+            -->
+        </nav>
+        <header id="headerGreen" class="header">
+            <div class="inner">
+                <h1 text-primary-color>Let's be Green</h1>
+                <p text-primary-color >Ready?</p>
+            </div>
+        </header>
+        <div class="Flex">
+            <aside id="infoJuego">
+                <div id="TituloAside">
+                    <h1 class="Titulo">MEMO</h1>
+                    <h3 class="Titulo">GREEN</h3>
+                </div>
+                <div id="NombreJugadorAside">
+                    <p>Nombre Jugador:</p>
+                    <h3 id="nombreJugador" class="Jugador"></h3>
+                </div>
+                <section id="instrucciones">
+                    <p>Instrucciones:</p>
+                    </br>
+                    <p>Haz Click sobre una ficha,
+                        <br> busca su compañera.</p>
+                    <p>Forma todos los pares.</p>
+                </section>
+                <section id="turnos">
+                    <label>Intentos Restantes :</label>
+                    <h3 id="intentos"></h3>
+                </section>
+            </aside>
+            <section id="play">
+                <div id="tablero">
+                    <figure id="0"><img src=""></figure>
+                    <figure id="1"><img src=""></figure>
+                    <figure id="2"><img src=""></figure>
+                    <figure id="3"><img src=""></figure>
+                    <figure id="4"><img src=""></figure>
+                    <figure id="5"><img src=""></figure>
+                    <figure id="6"><img src=""></figure>
+                    <figure id="7"><img src=""></figure>
+                    <figure id="8"><img src=""></figure>
+                    <figure id="9"><img src=""></figure>
+                    <figure id="10"><img src=""></figure>
+                    <figure id="11"><img src=""></figure>
+                </div>
+                <div id="progreso">
+                    <div id="barra">0</div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/ranking.js"></script>
+    <script type="text/javascript" src="js/logicMemo.js"></script>
+    <script type="text/javascript" src="js/home.js"></script>
+</body>
+
+</html>

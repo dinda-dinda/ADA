@@ -1,0 +1,807 @@
+/*MemoTest BEGREEN
+By Dinda - ADA BootCamp FrontEnd 2018
+*/
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/*Paleta de colores - MDesign*/
+@P-Brown: #795548;
+@P-LightBrown: #a98274;
+@P-DarkBrown: #4b2c20;
+
+@S-Green: #76ff03;
+@S-LightGreen: #b0ff57;
+@S-DarkGreen: #32cb00;
+
+.Text {
+    font-family: 'Electrolize';
+    text-align: center;
+    font-size: 1em;
+}
+
+.Flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+}
+td{
+    text-align: center;
+}
+main {
+    position: relative;
+    background: @S-LightGreen; 
+
+    width: 100vw;
+    height: 100vh;
+}
+
+aside {
+    .Flex;
+    padding-top: 2em;
+    flex-direction: column;
+    justify-content: space-around;
+
+    background: @P-LightBrown;
+    color: black;
+    margin-left: 10px;
+    margin-right: 5px;
+
+    width: 20vw;
+    height: 100vh;
+}
+
+.Titulo {
+    align-content: flex-start;
+    justify-content: space-around;
+    .Text;
+    color: black;
+    padding: 0.5em;
+    font-size: 2em;
+}
+
+h3 {
+    .Text;
+    color: black;
+    font-size: 1.5em;
+}
+
+#instrucciones {
+    .Flex;
+    align-content: flex-start;
+    flex-direction: column;
+    .Text;
+
+}
+
+#instrucciones span {
+    .Text;
+}
+
+p {
+    .Text;
+    padding: 0.3em;
+    font-size: 1em;
+}
+
+#play {
+    background: white;
+    width: 80vw;
+    height: 100vh;
+
+    .Flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 40px 20px;
+}
+
+#tablero {
+    .Flex;
+    flex-direction: row;
+    align-self: center;
+    flex-wrap: wrap;
+
+    width: 90vh;
+    height: 80vh;
+
+    background-color: @P-LightBrown;
+    margin: 5px;
+    border: 2px;
+    color: blue;
+    border-radius: 40px 20px;
+}
+
+#tablero figure {
+    width: 20vh;
+    height: 20vh;
+    background: @P-Brown;
+    margin: 5px;
+    border-color: @P-Brown;
+    box-shadow: 5px 5px 5px @P-DarkBrown;
+    border-width: 2px;
+    border-radius: 40px 20px;
+}
+
+#tablero figure img {
+    width: 20vh;
+    height: 20vh;
+    border-radius: 60px 40px;
+}
+
+.notChecked {
+    opacity: 0.9;
+    filter: alpha(opacity=5);
+    padding: 1px;
+    background-color: @P-LightBrown;
+    transition: transform .2s;
+    /* Animation */
+    margin: 0 auto;
+    transition-timing-function: ease;
+    -webkit-animation: spin 4s infinite linear;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    25% {
+        -webkit-transform: rotate(5deg);
+    }
+    75% {
+        -webkit-transform: rotate(-5deg);
+    }
+    100% {
+        -webkit-transform: rotate(0deg);
+    }
+}
+
+.checked {
+
+    opacity: 0.9;
+    filter: alpha(opacity=5);
+    padding: 1px;
+    background-color: @S-Green;
+
+    transition: transform .2s;
+    /* Animation */
+    margin: 0 auto;
+    -webkit-animation: color-me-in 4s infinite linear;
+}
+
+@-webkit-keyframes color-me-in {
+    0% {
+        background: S-DarkGreen;
+    }
+    50% {
+        background: @S-LightGreen;
+    }
+    100% {
+        background: @S-DarkGreen;
+    }
+}
+
+
+/*--dark shadow animation------*/
+
+@-webkit-keyframes mymove {
+    0% {box-shadow: 5px 15px 20px @P-DarkBrown;}
+    70% {box-shadow: 10px 20px 30px @P-DarkBrown;}
+    100% {box-shadow: 5px 15px 20px @P-DarkBrown;}
+}
+/*--------*/
+
+.Entrada {
+    .Flex;
+    .Text;
+    flex-direction: column;
+    padding: 1vw;
+    margin: 1vw;
+    width: 50vw;
+    height: 80vh;
+    border-radius: 40px 20px;
+    flex-direction: column;
+
+    background: @P-LightBrown;
+    
+    -webkit-animation: mymove 5s infinite/*, 
+                       color-me-in 5s infinite linear*/;
+   
+}
+
+input {
+    .Text;
+    .Flex;
+    flex-direction: column;
+    border-radius: 10px;
+    font-size: 1.5em;
+    height: 1.5em;
+}
+
+label {
+    .Text;
+    .Flex;
+    margin:5px;
+    flex-direction: column;
+}
+
+
+/*------------Button---------*/
+
+button {
+    .Text;
+    text-align: center;
+    border-radius: 4px;
+    background-color: @P-Brown;
+    box-shadow: 5px 10px 10px @P-DarkBrown;
+    border: none;
+    color: white;
+    font-size: 28px;
+    padding: 10px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 2vw;
+    padding: 1vw;
+    align-self: center;
+
+}
+button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+  background-color: rgba(121, 85, 72, 0.06);
+}
+
+button:hover span {
+  padding-right: 25px;
+}
+
+button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+/*--end of button----------------*/
+select {
+    .Text;
+    margin: 5px;
+    padding: 1px;
+    text-align: center;
+    height: 1.5em;
+    border-radius: 10px;
+    font-size: 1.5em;
+}
+
+#backgroundEntrada {
+    .Flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5vw;
+    justify-content: space-around;
+    width: 100vw;
+    height: 110vh;
+    background-color: @P-Brown;
+}
+
+
+/*small devices (phones, 800px and down) */
+
+@media only screen and (max-width: 800px) {
+    h2{
+        font-size: 1em;
+    }
+
+    #backgroundEntrada{
+        width: 100vw;
+        height: 110vh;
+        .Flex;
+        flex-direction: column; 
+    }
+    #newGameWindow {
+        width: 95vw;
+        height: 80vh;
+    }
+    main {
+        width: 100vw;
+        height: 100vh;
+    }
+ 
+#TituloAside{
+    margin-bottom: 30px;
+    margin-top: 200px;
+    height: 30vh;
+}
+.logo:before{
+    font-size: 1em;
+}
+nav{
+    display: none;
+}
+
+.THNum{
+   font-size: 1em; 
+}
+.THPosic{
+    font-size: 1em; 
+}
+.THNombre{
+    font-size: 1em;
+}
+
+.THJuego{
+    font-size: 1em;
+}
+.THMovs{
+    font-size: 1em;
+}
+.THComm{
+    font-size: 1em;
+}
+#historico{
+    width: 95vw;
+}
+#RankingUl{
+    width:90vw; 
+}
+    #infoJuego{ 
+        background-color: @S-LightGreen;
+        width: 100vw;
+        height: 10vh;
+    }
+
+    .Flex{
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+        margin:0px;
+        padding: 0px;
+    }
+
+    #labels{
+        
+    width: 90vw;         /*hacer mediaQuery para Cel*/                   
+    }
+    p{
+        align-items: baseline;
+        justify-content: flex-end;
+        font-size: 0.6em;
+    }
+
+
+    #play {
+           margin-top: 150px;
+        width: 100vw;
+        height: 90vw;
+        padding: 10px;
+        justify-content: space-between;
+        align-items: center;
+    
+    }
+
+    #tablero {
+    width: 95vw;
+    height: 70vh;
+        
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row;
+    align-self: center;
+    flex-wrap: wrap;
+      
+    }
+
+    #labels{
+    padding: 0px 10px;   
+    width: 90vw;                            
+    }
+    #tablero figure {
+    margin: 5px;
+    padding: 5px;
+     max-width: 20vw;
+      max-height: 20vw;
+    
+    }
+    #tablero figure img {
+    
+      max-width: 20vw;
+        max-height: 20vw;
+    
+    }
+    .Titulo{
+        font-size: 2em;
+        padding: 0;
+        margin:0;
+    }
+    #instrucciones{
+        display: none;
+    }
+    #labels{
+         display: flex;
+    align-self: center;
+    justify-content: space-between;
+    flex-direction: row;
+    width: auto;
+    }
+
+}
+
+
+
+/* For tablets: */
+
+@media only screen and (max-width: 1080px) {
+   
+   #infoJuego{
+    .Flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+        width: 90vw;
+        height: 20vh;
+        margin:0;
+        padding: 0;
+            padding-bottom: 50px;
+    }
+
+    #labels{
+    padding-right: 10px;   
+    width: 90vw;                            
+    }
+
+    .Titulo{
+        font-size: 2em;
+        padding: 0;
+        margin:0;
+    }
+}
+/*------------*/
+.slidecontainer {
+    width: 100%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100%; /* Full-width */
+    height: 15px; /* Specified height */
+    border-radius: 5px;
+    background: #fafafa; 
+    outline: none; 
+    opacity: 0.7; 
+    -webkit-transition: .2s;/*transition on hover */
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1; /* Fully shown*/
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ 
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+/*  width: 40px; 
+    height: 52px; 
+    background: url('../img/leafIco2.png');*/
+    width: 40px; 
+    height: 40px; 
+    background: url('../img/leafIco.png');
+
+   
+
+    border-radius: 50%;
+    cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+   /* width: 40px;
+    height: 52px; 
+    background: url('../img/leafIco2.png'); */ 
+    width: 40px; 
+    height: 40px; 
+    background: url('../img/leafIco.png');
+ 
+    border-radius: 50%;
+    cursor: pointer; /* Cursor on hover */
+}
+
+/*-Barra de Progreso--*/
+
+#progreso {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+        margin: 1vw;
+    height: 7vh;
+    width: 90%;
+    background-color: @S-LightGreen; 
+    border-radius: 10px;
+}
+
+#barra {
+    width: 0%;
+    height: 5vh;
+            
+        margin: 1vw;
+   border-radius: 10px;
+    background-color: @S-DarkGreen;
+    .Text;
+}
+
+/*----header---*/
+
+/* Style the header with a grey background and some padding */
+/*@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+*/
+
+.header {
+  position: relative;
+  height: 400px;
+  color: black;
+  text-align: center;
+  background: url('../img/beGreenbyDinda2.png') no-repeat center center;
+  /*Imagen de mohammad-gh-682387 por unsplash*/
+  background-size: cover;
+  
+  &:after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*background: @S-LightGreen;*/
+  }
+}
+
+.inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  z-index: 10;
+  transform: translateX(-50%) translateY(-50%);
+  animation: fade-in 0.75s 0.25s ease-in forwards; 
+  h1 {
+    color:@S-LightGreen;
+    margin: 0;
+    font-size: 4em;
+    line-height: 1.2em;
+  }
+  p {
+    color:@P-DarkBrown;
+    margin: 0;
+    font-size: 1.4em;
+    font-style: italic;
+    font-family: serif;
+  }
+}
+
+nav {
+    height: 10vh;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  &.scrolled {
+    background: @S-LightGreen;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    padding: 25px;
+    margin: 0;
+  }
+  li {
+    float: left;
+  }
+  a {
+    font-size: 0.9em;
+    color: #fff;
+    text-decoration: none;
+    margin: 5px 0 0 20px;
+    display: white;
+    &:hover {
+      color: darken(#fff, 7%);
+    }
+  }
+}
+
+.logo {
+  height: 50px;
+  float: left;
+  &:before, &:after {
+    position: absolute;
+    font-size: 2em;
+    font-weight: 31;
+    line-height: 0;
+    color: black;
+    top: 25px;
+  }
+  &:before {
+    content: 'beGreenbyDinda';
+    left: 25px;
+  }
+  &:after {
+    content: '';
+    left: : 100px;
+  }
+}
+
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+#nivelJuego{
+    display: flex;
+    flex-direction: column;
+}
+
+#labels{
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
+    flex-direction: row; 
+                        
+}
+/*------------ Ranking!! --------*/
+.ranking{
+    /*background-color: @P-DarkBrown;*/
+    background: url('../img/background.png') no-repeat center center;
+    background-size: cover;;
+    color:white;
+    width: 100vw;
+    height: 100vh;
+
+    .Flex;
+    flex-direction: column;
+    .Text;
+}
+
+#ranking header {
+    .Flex;
+    flex-direction: column;
+    text-align: center;
+    width: 80vw;
+    height: 20vh;
+}
+
+.sectionLi {    /*section ul and li ranking*/
+    .Flex;
+    flex-direction: column;
+    width: 80vw;
+    min-height: 50vh;
+    align-items: center;
+    background: rgba(176,255,87, 0.3);
+    /*Imagen de mohammad-gh-682387 por unsplash*/
+    color: black;
+    border-radius: 50px;
+    padding:3vh;
+}
+
+.rankingUl{
+    width: 90vw;
+}
+
+.liHistorico {
+    .Flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .Text;
+    width: 75vw;
+} 
+
+.rankingCell{
+    width: 15vw;
+    text-align: center;
+}
+.nombreGanador{
+    .Text;
+    color:black;
+}
+
+.juego{
+    .Text;
+    color: @P-DarkBrown;
+}
+.comentario{
+    .Text;
+    color: black;
+}
+.TituloRanking{
+
+    .Titulo;
+    width: 100vw;
+    padding:1vh 1vw;   
+}
+#rankingHistoricoTitulo{
+      .Titulo;
+}
+.TH{
+      font-family: 'Electrolize';
+height: 2em;  
+margin: 2vw 2vh;
+padding: 2vw 2vh; 
+}
+.THNum{
+    color: black;
+    width:8vw; 
+}
+.THPosic{
+    color: black;
+    width:5vw; 
+}
+.THNombre{
+    color: black;
+    width: 20vw;
+}
+
+.THJuego{
+    color: black;
+    width: 10vw;
+}
+.THMovs{
+    color: black;
+    width: 8vw;
+}
+.THComm{
+    color:black;
+    width: 30vw;
+}
+
+.navButton{
+    align-self: flex-end;
+    .Text;
+    width: 100px;
+    height: 30px;
+    font-size: 1em;
+}
+#backgroundHistorico{
+    .Flex;
+    width: 100vw;
+}
+.alignCenter{
+    align-self: center;
+}
+#ganadorRanking{
+    padding-top: 5vh;
+}
+/*----MarketingDisegnColor------*/
+#myRange{
+    background: @S-LightGreen;
+}
+#TituloAside{
+    width: 100%;
+    border-color: @P-Brown;
+    border-style: solid;
+    border-width: 6px;
+    border-radius: 10px;
+    background: @S-LightGreen;
+    color: black;
+
+}
+#NombreJugador{
+    width: 100%;
+    color: white;
+    background: @S-DarkGreen;
+}
