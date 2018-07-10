@@ -1,0 +1,10 @@
+.Skills{
+	display: flex;
+	flex-direction: row; 
+	margin-top: 50px;
+	width: 75vw;
+    height: 200px;
+  background-color: green;
+  color: white;
+  box-shadow: 2px;
+}

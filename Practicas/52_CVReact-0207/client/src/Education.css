@@ -1,0 +1,39 @@
+.Education{
+display: flex;
+flex-direction: row;
+margin-top: 0px;
+margin-left: -70%;
+width: 160%;
+height: 500px;
+  padding: 20px;
+  color: black;
+  background-color: rgba(167,255,235,50);
+  box-shadow: 2px;
+}
+.EducationBox{
+	display: flex;
+	flex-direction: row;
+	margin:5px;
+	width: 50%;
+	height: 100%
+}
+.Education img{
+	height: 100px;
+	width: auto;
+}
+.InfoEducation{
+	display: flex;
+	flex-direction: row;
+	background: #a7ffeb;
+	color: black; 
+	height: 100%;
+	width: 20%;
+}
+
+h4{
+	background-color: #00bfa5;
+  color: white;	
+}
+.ColorText{
+	color: #00bfa5;
+}

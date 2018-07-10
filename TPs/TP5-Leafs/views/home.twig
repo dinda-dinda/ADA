@@ -1,0 +1,49 @@
+{% extends 'layout.twig' %} {% block body %}
+
+    <aside>
+		<body>
+    	<h1>HOJAS</h1>
+        <nav id="navGallery">
+            <p>{{title}}</p>
+        </nav>
+        <p>{{url}}</p>
+        <label>Favoritos</label>
+        <select id="favorito">
+            <option value='Todas'>Todas</option>
+            <option value='siFavorito'>Favoritas</option>
+            <option value='noFavorito'>no Favoritas</option>
+        </select>
+        <label>Limbo</label>
+        <select id="limbo">
+            <option value='Todas'>Todas</option>
+            <option value='Peltada'>Peltada</option>
+            <option value='Bilobulada'>Bilobulada</option>
+             <option value='Acorazonada'>Acorazonada</option>
+        </select>
+        <label>Peciolo</label>
+        <select class="peciolo-select" id="peciolo">
+            <option value='Todas'>Todas</option>
+            <option value='Paralelinervia'>Paralelinervia</option>
+            <option value='Radial'>Radial</option>
+        </select>
+        <button id="botonFiltro">Filtrar</button>
+    </aside>
+    <div id="mainGallery">
+        <section id="gallery">
+    		{% for i in Hojas %}
+            <figure class="flex" data={{i.id}}>
+                <img src={{i.src}}>
+                <h2>{{i.especie}}</h2>
+                <fav class="estrella + {{i.favorito}}"></fav>
+                <h3>Limbo: {{i.limbo}}</h3>
+                <h3>Peciolo: {{i.peciolo}}</h3>
+                <a class="imgLinda"></a>
+                <button class="btnDetalle">Ver Detalle</button>
+            </figure>
+            {% endfor %}
+        </section>
+        <footer id="paginado">
+            <a href="/home">Prev</a>
+        </footer>
+    </div>
+    {% endblock %}

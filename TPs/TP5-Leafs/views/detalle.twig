@@ -1,0 +1,20 @@
+{% extends 'layout.twig' %} {% block body %}
+
+
+    <div id="galeryDetalle">
+        <h1>HOJAS</h1>
+            <p>{{title}}</p>
+
+            <figure class="flexDetalle" data={{i.id}}>
+                <img src={{i.src}}>
+                <h2>{{i.especie}}</h2>
+                <fav class="estrella + {{i.favorito}}"></fav>
+                <h3>Limbo: {{i.limbo}}</h3>
+                <h3>Peciolo: {{i.peciolo}}</h3>    
+            </figure>
+        
+        <footer id="paginado">
+            <p>volver al home</p><a href="/home">Prev</a>
+        </footer>
+    </div>
+    {% endblock %}

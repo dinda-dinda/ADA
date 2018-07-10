@@ -1,0 +1,16 @@
+.Header{
+	width: 85vw;
+    height: 45vh;
+    padding: 20px;
+  background-color: #00bfa5;
+  color: black;
+  outline-offset: 0px;
+}
+.Header	h1{
+	font-size: 1em;
+}
+.Header	h2{
+	font-size: 1em;
+}
+
+

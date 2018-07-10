@@ -1,0 +1,103 @@
+*{	
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+body {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+aside{
+	width: 20vw;
+	height: 100vh;
+	display: flex;
+	padding: 10px;
+	flex-direction: column;
+	justify-content: space-around;
+	background-color: white;
+}
+#navGallery{
+	padding-top: 10vh;
+	width: 20vw;
+	height: 10vh;
+	display: flex;
+	flex-direction: row;
+	padding-left: 1vw;
+	justify-content: flex-start;
+	color:black;
+}
+#mainGallery{
+	background: url('/images/backgroundHoja.jpg'), center, no-repeat, center, fixed; 
+  	/*imagen de sarah-sosiak-298060- de unsplash*/
+	display: flex;
+	flex-direction: column;
+	width: 75vw;
+	height: auto;
+}
+#paginado{
+	padding-top: 10vh;
+	width: 75vw;
+	height: 10vh;
+}
+#gallery{
+  	width: 75vw;
+	height: 90vh;
+	padding-top: 10vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+figure{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	background-color: white;
+	color: black;
+	font-size: 1.2em;
+	width: 300px;
+	height: 60vh;
+	padding: 2vh 2vw;
+	margin: 10px;
+	border-radius: 20px;
+}
+
+figure img{
+	width: 300px;
+	height: 18vh;
+	margin-bottom: 20px;
+}
+button{
+	margin-top: 10px;
+}
+
+.flex {
+display:flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.noFavorito{
+    content: url('/images/starWhite.png');
+    display: flex;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+	border: 0 none;
+    padding: 0;
+}
+.siFavorito{
+	content: url('/images/starBlack.png');
+	display: flex;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+	border: 0 none;
+    padding: 0;
+}
