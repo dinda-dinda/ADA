@@ -49,7 +49,7 @@ var Hojas = [{
     id:"7",
     especie: "Malvon3",
     limbo: "Peltada",
-    peciolo: "Radial",
+    peciolo: "Paralelinervia",
     src: "/images/hojas/hojaMalvon.jpg",
     favorito: "noFavorito"
 },{
@@ -98,7 +98,7 @@ var Hojas = [{
     id:"14",
     especie: "Begonia4",
     limbo: "Acorazonada",
-    peciolo: "Radial",
+    peciolo: "Paralelinervia",
     src: "images/hojas/hojaBegonia.jpg",
     favorito: "noFavorito"
 },{

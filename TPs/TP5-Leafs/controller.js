@@ -157,8 +157,8 @@ controlador.buscarHojas = function(req, res) {
     let limbo = req.body.limbo;
     let peciolo = req.body.peciolo;
 
-
-    /*rutas del nav*/
+    /*---------rutas del nav----------- Info
+    */
     let rutaFavorito = "";
     let rutaLimbo = "";
     let rutaPeciolo = "";
@@ -174,19 +174,36 @@ controlador.buscarHojas = function(req, res) {
     let ruta = "Home" + rutaFavorito + rutaLimbo + rutaPeciolo;
     console.log("ruta : " + ruta);
     /*termina rutas nav*/
-    /*filtros*/
+
+
+    /*filtros con banderas---------------------------------*/
 
     for (var i = controlador.Hojas.length - 1; i >= 0; i--) {
 
-        if (peciolo == controlador.Hojas[i].peciolo) {
-            HojasFiltro.push(controlador.Hojas[i]);
-        } else if (limbo == controlador.Hojas[i].limbo) {
-            HojasFiltro.push(controlador.Hojas[i]);
-        } else if (favorito == controlador.Hojas[i].favorito) {
-            HojasFiltro.push(controlador.Hojas[i]);
-        }
-    }
+        let filtroLimbo = true;
+        let filtroPeciolo = true;
+        let filtroFavorito = true; 
 
+        if (peciolo != "Todas"){ 
+            if( controlador.Hojas[i].peciolo!= peciolo){
+                filtroPeciolo = false;
+            }
+        }
+        if (favorito != "Todas"){ 
+            if( controlador.Hojas[i].favorito!= favorito){
+                filtroFavorito = false;
+            }
+        }
+        if (limbo != "Todas"){ 
+            if( controlador.Hojas[i].limbo!= limbo){
+                filtroLimbo = false;
+            }
+        }
+        if(filtroPeciolo && filtroLimbo && filtroFavorito){
+                HojasFiltro.push(controlador.Hojas[i]);
+        }
+    } 
+    
     /*paginado*/
     let cantPaginas = 0;
     if (HojasFiltro.length <= 6) {
