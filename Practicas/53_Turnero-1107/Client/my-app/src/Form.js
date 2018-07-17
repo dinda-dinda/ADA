@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
 
 class Form extends Component {
+  getValuesTurno () {
+    var newTurno = {  service: $('#service').value(),
+                      date: $('#date').value(),
+                      name: $('#nameClient').value(),
+                      email: $('#email').value()
+                  }
+    
+    }
+
   submit () {
     var laPromesa = fetch('/skills')
     
@@ -23,7 +32,7 @@ class Form extends Component {
           <option value="balanceo">balanceo</option>
           <option value="rotacion">rotacion</option>
         </select>
-        <input type="date"></input>
+        <input id="date" type="date"></input>
 
         <label>ingrese sus datos personales</label>
         <input id="nameClient" placeHolder="ingrese su nombre"></input>

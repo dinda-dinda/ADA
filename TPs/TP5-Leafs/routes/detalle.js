@@ -4,14 +4,6 @@ var express = require('express');
 var router = express.Router();
 var controlador = require('./../controller.js');
 
-
-router.get('/', function(req, res, next) {
-
-
-    controlador.Home;
-   
-});
-
 router.get('/:id', function(req, res, next) {
 
     controlador.Detalle;

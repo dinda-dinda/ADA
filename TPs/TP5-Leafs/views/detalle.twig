@@ -1,20 +1,19 @@
 {% extends 'layout.twig' %} {% block body %}
 
-
-    <div id="galeryDetalle">
+    <div id="galleryDetalle">
         <h1>HOJAS</h1>
-            <p>{{title}}</p>
-
-            <figure class="flexDetalle" data={{i.id}}>
-                <img src={{i.src}}>
-                <h2>{{i.especie}}</h2>
-                <fav class="estrella + {{i.favorito}}"></fav>
-                <h3>Limbo: {{i.limbo}}</h3>
-                <h3>Peciolo: {{i.peciolo}}</h3>    
+            <p class="small">{{title}}</p>
+            
+            <figure class="figureDetalle" data={{item.id}}>
+                <img src={{item.src}}>
+                <h2>{{item.especie}}</h2>
+                <fav class={{item.favorito}}></fav>
+                <h3>Limbo: {{item.limbo}}</h3>
+                <h3>Peciolo: {{item.peciolo}}</h3>    
             </figure>
         
         <footer id="paginado">
-            <p>volver al home</p><a href="/home">Prev</a>
+            <button class="btn" type="button"><a href="/home">Home</a></button>
         </footer>
     </div>
     {% endblock %}

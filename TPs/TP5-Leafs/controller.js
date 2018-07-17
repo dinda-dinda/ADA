@@ -19,7 +19,7 @@ var controlador = {
         especie: "Ginko",
         limbo: "Bilobulada",
         peciolo: "Paralelinervia",
-        src: "images/hojas/hojaGinko.jpg",
+        src: "/images/hojas/hojaGinko.jpg",
         favorito: "noFavorito"
     }, {
         id: "3",
@@ -33,7 +33,7 @@ var controlador = {
         especie: "Ginko1",
         limbo: "Bilobulada",
         peciolo: "Paralelinervia",
-        src: "images/hojas/hojaGinko.jpg",
+        src: "/images/hojas/hojaGinko.jpg",
         favorito: "noFavorito"
     }, {
         id: "5",
@@ -47,7 +47,7 @@ var controlador = {
         especie: "Ginko2",
         limbo: "Bilobulada",
         peciolo: "Paralelinervia",
-        src: "images/hojas/hojaGinko.jpg",
+        src: "/images/hojas/hojaGinko.jpg",
         favorito: "noFavorito"
     }, {
         id: "7",
@@ -61,7 +61,7 @@ var controlador = {
         especie: "Ginko3",
         limbo: "Bilobulada",
         peciolo: "Paralelinervia",
-        src: "images/hojas/hojaGinko.jpg",
+        src: "/images/hojas/hojaGinko.jpg",
         favorito: "noFavorito"
     }, {
         id: "9",
@@ -75,43 +75,43 @@ var controlador = {
         especie: "Ginko4",
         limbo: "Bilobulada",
         peciolo: "Paralelinervia",
-        src: "images/hojas/hojaGinko.jpg",
+        src: "/images/hojas/hojaGinko.jpg",
         favorito: "noFavorito"
     }, {
         id: "11",
         especie: "Begonia",
         limbo: "Acorazonada",
         peciolo: "Radial",
-        src: "images/hojas/hojaBegonia.jpg",
+        src: "/images/hojas/hojaBegonia.jpg",
         favorito: "noFavorito"
     }, {
         id: "12",
         especie: "Begonia2",
         limbo: "Acorazonada",
         peciolo: "Radial",
-        src: "images/hojas/hojaBegonia.jpg",
+        src: "/images/hojas/hojaBegonia.jpg",
         favorito: "noFavorito"
     }, {
         id: "13",
         especie: "Begonia3",
         limbo: "Acorazonada",
         peciolo: "Radial",
-        src: "images/hojas/hojaBegonia.jpg",
+        src: "/images/hojas/hojaBegonia.jpg",
         favorito: "noFavorito"
     }, {
         id: "14",
         especie: "Begonia4",
         limbo: "Acorazonada",
         peciolo: "Radial",
-        src: "images/hojas/hojaBegonia.jpg",
+        src: "/images/hojas/hojaBegonia.jpg",
         favorito: "noFavorito"
     }, {
         id: "15",
         especie: "Begonia5",
         limbo: "Acorazonada",
         peciolo: "Radial",
-        src: "images/hojas/hojaBegonia.jpg",
-        favorito: "noFavorito"
+        src: "/images/hojas/hojaBegonia.jpg",
+        favorito: "siFavorito"
     }]
 
 
@@ -138,21 +138,11 @@ controlador.sacarFavorito = function(req, res) {
 
 }
 
-controlador.buscarPeciolo = function(req, res) {
-
-    resultado = ['Radial', "Paralelinervia"];
-
-    var respuesta = {
-        'peciolo': resultado //DATA
-    };
-
-    res.send(JSON.stringify(respuesta)); //envia JSOn
-
-}
 
 controlador.buscarHojas = function(req, res) {
     DATA = [];
     HojasFiltro = [];
+    let paginaSolicitada = req.body.pagina;
     let favorito = req.body.favorito;
     let limbo = req.body.limbo;
     let peciolo = req.body.peciolo;
@@ -172,12 +162,10 @@ controlador.buscarHojas = function(req, res) {
     }
 
     let ruta = "Home" + rutaFavorito + rutaLimbo + rutaPeciolo;
-    console.log("ruta : " + ruta);
     /*termina rutas nav*/
 
 
     /*filtros con banderas---------------------------------*/
-
     for (var i = controlador.Hojas.length - 1; i >= 0; i--) {
 
         let filtroLimbo = true;
@@ -204,26 +192,58 @@ controlador.buscarHojas = function(req, res) {
         }
     } 
     
-    /*paginado*/
-    let cantPaginas = 0;
-    if (HojasFiltro.length <= 6) {
-        HojasFiltro = HojasFiltro;
-        cantPaginas = 1;
-    } else if (HojasFiltro.length > 6) {
+    /*paginado DESARROLLAR*/
+    let itemsXPagina = 6;    
+    let cantPaginas = Math.ceil(HojasFiltro.length/itemsXPagina);
 
-        cantPaginas = (HojasFiltro.length / 3) * 2;
+    /*obj respuesta*/
+        let dataEnviar = {
+            nroPagina: "",
+            cantPaginas: "",
+            itemsXPagina : "",
+            items:[]
+        };
 
+    /*REspuesta*/
+        dataEnviar.nroPagina=paginaSolicitada;
+        dataEnviar.cantPaginas=cantPaginas;
+        dataEnviar.itemsXPagina=itemsXPagina;
 
-    }
+        let posicion = 0;
+        for (var i = (dataEnviar.nroPagina-1)*itemsXPagina; i < HojasFiltro.length; i++) {
+            if(posicion<itemsXPagina){
+                dataEnviar.items.push(HojasFiltro[i]);
+            }
+            posicion++;
+        }
 
-    DATA = {
-        ruta: ruta,
-        HojasFiltro: HojasFiltro,
-        cantPaginas: cantPaginas
-    };
-    res.send(JSON.stringify(DATA)); //envia JSOn
+    res.send(JSON.stringify(dataEnviar)); //envia JSOn
 
 
 }
+
+controlador.home = function(req, res) {
+
+    //console.log(controlador.Hojas);    
+    res.render('home', { title: 'Home', Hojas: controlador.Hojas, url: "Home" });
+}
+
+controlador.detalle = function(req, res) {
+    let idElegido = req.params.id;
+    console.log("idElegido"+idElegido);
+    let hojaDetalle = "not found";
+
+    for (var i = controlador.Hojas.length - 1; i >= 0; i--) {
+        if (controlador.Hojas[i].id == idElegido) {
+            hojaDetalle = controlador.Hojas[i];
+      
+        }
+    }
+    
+    console.log("hojaDetalle : "); console.log(JSON.stringify(hojaDetalle));    
+    res.render('detalle', { title: 'Detalle', item: hojaDetalle});
+}
+
+
 
 module.exports = controlador

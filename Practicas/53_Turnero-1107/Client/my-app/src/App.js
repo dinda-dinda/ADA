@@ -15,9 +15,9 @@ class App extends Component {
       <div className="App">
         <nav className="App-header">
           <li><Link to="/login">Login</Link></li>
-        </nav>
-        <div className="Form"><Form/></div>
-        
+        </nav>       
+          <li><Link to="/form">Sacar Turno</Link></li>
+    <Route path ="/form" component ={Form}/>                
     <Route path ="/login" component ={Login}/>        
       </div>
         </Router>
