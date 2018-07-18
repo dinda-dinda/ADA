@@ -3,6 +3,8 @@
 	padding: 0px;
 	box-sizing: border-box;
 }
+
+
 body {
 	width: 100vw;
 	height: auto;
@@ -11,7 +13,9 @@ body {
 	justify-content: space-between;	
 	font: 14px 'Roboto','Helvetica','Arial',sans-serif;
 }
-
+.Titulo{
+font: 25px 'Roboto','Helvetica','Arial',sans-serif;
+}
 aside{
 	width: 20vw;
 	height: 100vh;
@@ -26,16 +30,18 @@ aside h2 {
   margin-bottom:50px; 
 }
 .small { 
-  font-weight:normal; 
+  font-weight:bold; 
   color:#888; 
   display:block; 
 }
 #navGallery{
-	padding-top: 10vh;
-	width: 20vw;
-	height: 5vh;
+	padding-top: 1vh;
+	margin-right: 20px;
+	width: 15vw;
+	height: auto;
 	display: flex;
 	flex-direction: row;
+	flex-wrap: wrap;
 	padding-left: 1vw;
 	justify-content: flex-start;
 	color:black;
@@ -52,13 +58,22 @@ aside h2 {
 	height: auto;
 }
 #paginado{
+	background-color: rgba(225,225,225,0.3);
+	border-radius: 5px;
+	font-weight:bold; 
 	display: flex;
 	padding:0px 40vh 0px 40vh;
 	justify-content: space-around;
 	align-items: center;
 	width: 75vw;
-	height: 10vh;
+	height: 5vh;
+	margin: 10px 20px;
 }
+
+#paginado a:hover, #paginado a:focus{
+  font-size: 2em;
+}
+
 #gallery{
   	width: 80vw;
 	/*height: 100vh;*/
@@ -101,6 +116,8 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 }
+
+
 
 .noFavorito{
     content: url('/images/starWhite.png');

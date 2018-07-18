@@ -42,7 +42,7 @@ $(document).ready(function() {
                 }
 
                 $("#navGallery").children("p").remove();
-                $("#navGallery").append(`<p class="small">${incommingData.ruta}/</p>`);
+                $("#navGallery").append(`<p class="small">${incommingData.rutasNav}/</p>`);
                 
                 construirPaginado(incommingData.cantPaginas);
                 activarStar();
@@ -137,7 +137,7 @@ function buscar(nroPagina) {
             }
 
             $("#navGallery").children("p").remove();
-            $("#navGallery").append(`<p class="small">${incommingData.ruta}/</p>`);
+            $("#navGallery").append(`<p class="small">${incommingData.rutasNav}/</p>`);
 
             construirPaginado(incommingData.cantPaginas);
             
