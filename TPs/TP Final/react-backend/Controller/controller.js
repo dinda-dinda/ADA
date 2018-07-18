@@ -1,8 +1,8 @@
 const self = {}
 
-controlador.busqueda = function(req,res,next){
+self.busqueda = function(req,res,next){
 
-	    var apiMercadoLibre = fetch('https://api.mercadolibre.com/sites/MLA/search?q=​:query')
+	 var apiMercadoLibre = fetch('https://api.mercadolibre.com/sites/MLA/search?q=​:query')
 	}
     
     var nuevaPromesa = apiMercadoLibre.then( function(response){
@@ -13,3 +13,5 @@ controlador.busqueda = function(req,res,next){
       bodyTransformado.forEach(s => document.getElementbyId('galeriaBuscador').append(<p>{s}</p>)
     		
   		})
+
+  module.exports =self;
