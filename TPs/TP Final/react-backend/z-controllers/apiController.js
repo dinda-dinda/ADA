@@ -81,6 +81,48 @@ function separarPrecioDecimales(e) {
         return e;
 }
 
+function compararCategorias(resBreadcrumbServices){
+    console.log("entre en compararCategorias");
+    let todasCategorias = resBreadcrumbServices;
+    let pruebaMayor =0; //el que se va a comparar
+    let mayor=0;        //el que tiene mas elementos
+    let categoriaSiguiente =0;
+
+    let mejorCategoria={cantidadDeObjetos:"",       
+                            categorias:[]
+                        };
+
+    for (var i = 0; i < todasCategorias.length-1; i++) {
+
+        pruebaMayor = todasCategorias[i];
+        categoriaSiguiente = todasCategorias[i+1];
+        
+        if(pruebaMayor[0]< categoriaSiguiente[0]){
+            if(mayor==0||mayor<categoriaSiguiente[0]){
+            mayor=categoriaSiguiente[0];
+
+            mejorCategoria={
+                cantidadDeObjetos: categoriaSiguiente[0],
+                categorias: categoriaSiguiente[1]
+                }
+            }
+        }else if (pruebaMayor[0]>=categoriaSiguiente[0]){
+            if(mayor==0||mayor<pruebaMayor[0]){
+            mayor = pruebaMayor[0];
+
+            mejorCategoria={
+                cantidadDeObjetos:pruebaMayor[0],
+                categorias:pruebaMayor[1]
+                }
+            }
+       }
+    }
+/**        console.log("mayor FINAL!: "); console.log(mayor);
+        console.log("mejorCategoria FINAL! : "); console.log(mejorCategoria);*/
+         return mejorCategoria
+}
+
+
 /** Armo el Breadcrumb
 *   params idCategoria, bandera(detalle o busqueda), respuesta. 
 *    Return object
@@ -91,29 +133,27 @@ function separarPrecioDecimales(e) {
     console.log(idCategoria);
     console.log("bandera");
     console.log(bandera);*/
-        
+    
     if(bandera=="detalle"){
         console.log("---armarBreadCrumb detalle----");
         let idDetalle = idCategoria;
-/**        console.log("idDetalle");
-        console.log(idDetalle);*/
+/**        console.log("idDetalle");console.log(idDetalle);*/
         let resBreadcrumbServices = await services.buscarCategoriasDetalle(idDetalle,res);
-/**        console.log("resBreadcrumbServices");
-        console.log(resBreadcrumbServices);*/
-        let categorias= resBreadcrumbServices.map(e => e.name);
-/**        console.log("categorias");
-        console.log(categorias); */
-        breadcrumb = categorias;
+/**        console.log("resBreadcrumbServices");console.log(resBreadcrumbServices);*/
+        let categoriasDetalle= resBreadcrumbServices.map(e => e.name);
+/**        console.log("categorias");console.log(categorias); */
+        breadcrumb = categoriasDetalle;
+       console.log("breadcrumb : "); console.log(breadcrumb);
     }else{
         console.log("---armarBreadCrumb busqueda----");
         let categorias = idCategoria;
-        console.log("ID categorias Busqueda");
-        console.log(categorias);
+/**        console.log("ID categorias Busqueda"); console.log(categorias);*/
         let resBreadcrumbServices = await services.buscarCategoriasBusqueda(categorias,res);
-        console.log("resBreadcrumbServices");
-        console.log(resBreadcrumbServices);
-        
 
+        let categoriasBusqueda = compararCategorias(resBreadcrumbServices);
+/**        console.log("categoriasBusqueda"); console.log(categoriasBusqueda);*/
+        breadcrumb = categoriasBusqueda.categorias.map(e => e.name);
+        console.log("breadcrumb : ");console.log(breadcrumb);
     }
     return breadcrumb;
 }
@@ -128,37 +168,34 @@ self.busqueda = async function(req, res, next) { /*'/api/items?q=:query'*/
     //  console.log("buscarMeli return busqueda: " + JSON.stringify(resultado));
     //console.log("resulto Controller")
 
-    let categorias = armarBreadcrumb(resultado[1],"busqueda"); //con la info del detalle preparo Breadcrumb
+    let categorias = await armarBreadcrumb(resultado[1],"busqueda"); //con la info del detalle preparo Breadcrumb
 
     let preciosActualizados = await separarPrecioDecimales(resultado[0]); /*Separo el precio en Enteros y Decimales*/
     //console.log("buscarMeli resultado precio separado: " + JSON.stringify(preciosActualizados));
 
-    return res.json(preciosActualizados);
+    return res.json([preciosActualizados,categorias]);
 }
 
 self.detalle = async function(req, res, next) { /*busco el detalle a partir del id*/
     console.log("----busqueda Detalle controller ----");
-
     let id = req.params.id;
     // console.log("router.get params.id : " + id);
 
     let meliDetalle = await services.buscarMeliDetalle(id, res);  
 
-    let categoriasDetalle = await armarBreadcrumb(meliDetalle[1],"detalle"); /**Busco las categorias correspondientes*/
-    console.log("categoriasDetalle Controller");
-    console.log(categoriasDetalle);
+    let categoriasDetalle = await armarBreadcrumb(meliDetalle[1],"detalle",res); /**Busco las categorias correspondientes*/
+/**    console.log("categoriasDetalle Controller--------------------");console.log(categoriasDetalle);*/
 
     let precioActualizado = await separarPrecioDecimales(meliDetalle[0]);
-    //console.log("precioActualizado");
-    //console.log(precioActualizado);
+    //console.log("precioActualizado");//console.log(precioActualizado);
 
     var meliDescripcion = await services.buscarMeliDescripcion(id, res);
     //console.log("respuesta del get Descripcion :" + meliDescripcion);
 
     var detalleParaEnviar = armarObjetoDescripcion(precioActualizado, meliDescripcion);
-
-    //console.log(detalleParaEnviar); //objeto Detalle de la api de Meli
-    return res.json(detalleParaEnviar);
+/**    console.log("en busqueda detalle controller detalleParaEnviar")
+    console.log(detalleParaEnviar); //objeto Detalle de la api de Meli*/
+    return res.json([detalleParaEnviar,categoriasDetalle]);
 }
 
 module.exports = self;

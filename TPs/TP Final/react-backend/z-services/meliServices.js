@@ -4,6 +4,7 @@ const self = {}
 
 const MELI_API = 'https://api.mercadolibre.com/sites/MLA/search?offset=0&limit=4&q='
 const MELI_PRODUCT = ''
+const MELI_CATEGORIES ='https://api.mercadolibre.com/categories/'
 
 self.buscarMeli = function(busqueda, res) {
     return axios
@@ -56,8 +57,8 @@ self.buscarMeli = function(busqueda, res) {
 
 self.buscarMeliDetalle = function(id, res) {
     console.log("---------entro en meliServices Detalle---------")
-    console.log("id");
-    console.log(id);
+/**    console.log("id");
+    console.log(id);*/
 
     return axios
         .get(`https://api.mercadolibre.com/items/${id}`)
@@ -122,47 +123,68 @@ self.buscarMeliDescripcion = function(id, res) {
 
 self.buscarCategoriasDetalle = function(idDetalle, res) {
     console.log("---entro en meliServices buscarCategoriasDetalle---");
-    console.log("idDetalle");
-    console.log(idDetalle);
+    /**console.log("idDetalle");console.log(idDetalle);*/
 
     return axios
-        .get(`https://api.mercadolibre.com/categories/${idDetalle}`)
+        .get(`${MELI_CATEGORIES}${idDetalle}`)
         .then(function(respuestaCategorias) {
             let categorias = respuestaCategorias.data.path_from_root;
-            console.log("categorias");
-            console.log(categorias);
+            /**console.log("categorias");console.log(categorias);*/
             return categorias;
         })
         .catch(e => (console.log("categoriasDetalle axios pincho")))
 }
 
-self.buscarCategoriasBusqueda = function(categorias, res) {
+async function iterador(idCategoria){
+          /**console.log("entro en la funcion de iterador");*/
+        return axios
+            .get(`${MELI_CATEGORIES}${idCategoria}`)
+            .then(function(respuestaCategorias) {
+                let totalItems = respuestaCategorias.data.total_items_in_this_category;
+              /**  console.log("respuestaCategorias.data.total_items_in_this_category");
+                console.log(respuestaCategorias.data.total_items_in_this_category);*/
+
+                let categorias = respuestaCategorias.data.path_from_root;
+              /**  console.log("respuestaCategorias.data.path_from_root");
+                console.log(respuestaCategorias.data.path_from_root);
+                console.log("categorias");
+                console.log(categorias);*/
+                let info = [totalItems,categorias];
+              /**console.log("info");
+                console.log(info);*/
+                return info
+            })
+            .catch(e => (console.log("come on axios catch!")))
+}
+
+
+self.buscarCategoriasBusqueda  = async function(categorias, res) {
     console.log("---entro en meliServices buscarCategoriasDetalle---");
-    console.log("categorias");
-    console.log(categorias);
-    let categoriasItems = {};
+    let categoriasItems = [];
+/**    console.log("categoriasItems ANTES");
+        console.log(categoriasItems);*/
+
     for (var i = categorias.length - 1; i >= 0; i--) {
         let idCategoria = categorias[i];
-        console.log("idCategoria");
-        console.log(idCategoria);  
-
-        ////////////crear nueva funcion async para incluir la llamada en cada iteracion~
-        return axios
-            .get(`https://api.mercadolibre.com/categories/${idCategoria}`)
-            .then(function(respuestaCategorias) {
-                console.log("respuestaCategorias.data");
-                console.log(respuestaCategorias.data);
-              /*
+/**        console.log("idCategoria");
+        console.log(idCategoria);  */
+        let cantidad = await iterador(idCategoria);
+        categoriasItems.push(cantidad);
+       
+/**       console.log("cantidad de respuesta de iterador!");
+       console.log(cantidad);*/
+    }
+/**        console.log("categoriasItems DESPUES");
+        console.log(categoriasItems);
+        console.log(JSON.stringify(categoriasItems));*/
+        return categoriasItems;
+                /*
                 let cantidadItems = respuestaCategorias.data.total_items_in_this_category;
                 let categorias = respuetaCategorias.data.path_from_root.name;
                 console.log("cantidadItems + categorias " + cantidadItems + categorias);
                 return (e => {
                     console.log("LOVEYOU")
-                })
-            .catch(e => (console.log("categoriasDetalle axios pincho")))*/
-            })
-    }
+            .catch(e => (console.log("categoriasDetalle axios pincho")))*/            
+          
 }
-
-
 module.exports = self;

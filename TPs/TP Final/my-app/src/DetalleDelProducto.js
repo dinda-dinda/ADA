@@ -8,7 +8,8 @@ class DetalleDelProducto extends Component {
   constructor(props){
     super(props);
     this.state={
-      detalleDelProducto:null     
+      detalleDelProducto:null,
+      categorias:null
       }
     }
   
@@ -23,8 +24,12 @@ class DetalleDelProducto extends Component {
               return res.json()})
           
           .then(res => {
-            this.setState({detalleDelProducto:res})
+            this.setState({detalleDelProducto:res[0],
+                          categorias:res[1]})
+console.log("this.state.detalleDelProducto")
             console.log(this.state.detalleDelProducto)
+console.log("this.state.categorias")
+            console.log(this.state.categorias)
             return res
             })
 
@@ -41,7 +46,8 @@ class DetalleDelProducto extends Component {
   }else{
     return (
       <div id="producto">
-        <Categorias/>
+        <Categorias categorias={this.state.categorias}/>
+      {console.log(this.state.categorias)}
       {console.log(this.state.detalleDelProducto.item)}
    
         <section id="resumenProducto">
